@@ -1,0 +1,127 @@
+\documentclass[letterpaper]{article} %único necesario para: crear documento, hacer título, espacios, interlineado
+
+\usepackage{vmargin} %necesario para ajustar las márgenes con \setmargins
+%\usepackage{euler} %usa la fuente "euler" para las ecuaciones
+\usepackage{amsfonts} %para Z estilizada
+\usepackage{pifont} %para más estilos de viñetas
+\usepackage{amsmath} %necesario equation*
+\usepackage{amsthm} %necesario para proof enviroment
+\usepackage{dsfont} %alguna letra caligráfica
+\usepackage{tipa} %Epsilon bonito
+\usepackage{graphicx} %para manejar imágenes
+\usepackage{wrapfig} %para imágenes en modo "wrap"
+\usepackage{lipsum} %para usar el texto de relleno
+\usepackage{bold-extra} %permite usar textsc
+\usepackage{tikz-cd} %para los diagramas conmutativos
+
+\counterwithin{equation}{subsection}
+\newtheorem{Tma}[equation]{Teorema}
+\newtheorem{Prop}[equation]{Proposición}
+\newtheorem{Def}[equation]{Definición}
+\newtheorem{Lema}[equation]{Lema}
+\newtheorem{Cor}[equation]{Corolario}
+\newtheorem{Ejc}[equation]{Ejercicio}
+\newtheorem{Ejm}[equation]{Ejemplo}
+\newtheorem{Not}[equation]{Notación}
+
+\newcommand{\Sh}{\normalfont{\text{Sh}}}
+\newcommand{\PreSh}{\normalfont{\text{PreSh}}}
+\newcommand{\PSu}{\normalfont{\text{P-Su}}}
+\newcommand{\QSu}{\normalfont{\text{Q-Su}}}
+\newcommand{\RSu}{\normalfont{\text{R-Su}}}
+\newcommand{\Pgerm}{\normalfont{\text{P-germ}}}
+\newcommand{\Qgerm}{\normalfont{\text{Q-germ}}}
+\newcommand{\Rgerm}{\normalfont{\text{R-germ}}}
+\newcommand{\germ}{\normalfont{\text{germ}}}
+\newcommand{\Su}{\normalfont{\text{Su}}}
+\newcommand{\Set}{\normalfont{\textbf{Set}}}
+\newcommand{\Top}{\normalfont{\textbf{Top}}}
+\newcommand{\Bund}{\normalfont{\textbf{Bund}}}
+\newcommand{\Etale}{\normalfont{\textbf{Etale}}}
+\newcommand{\Open}{\mathcal{O}}
+\newcommand{\subseteqab}{\stackrel{ab}{\subseteq}}
+
+\renewcommand*{\proofname}{\textbf{Prueba}} %Muestra "prueba" en lugar de "proof"
+\renewcommand\refname{Referencias} %Muestra "Referencias" en lugar de "References"
+
+%letterpaper: 21.59cm x 27.94cm
+\setmargins{2.8 cm} %margen izquierdo
+{1.5 cm} %margen Superior
+{15.5cm} %anchura del texto
+{23cm} %altura del texto
+{0pt} %altura de los encabezados
+{1.5cm} %espacio entre el texto y los encabezados
+{5 cm} %altura del pie de página
+{1 cm} %espacio entre el texto y el pie de página
+
+\addtolength{\skip\footins}{2pc}
+
+%\pagenumbering{gobble} %Quita la numeración de las páginas
+\renewcommand{\baselinestretch}{1.5} %Aumenta el interlineado a n veces el automático
+\relpenalty=9999 %Evita que se rompan las ecuaciones en el cambio de renglón
+\binoppenalty=9999
+\renewenvironment{abstract}
+{\small
+   \list{}{%
+      \setlength{\leftmargin}{1.4cm}% <---------- CHANGE HERE
+      \setlength{\rightmargin}{\leftmargin}%
+   }%
+   \item\relax}
+{\endlist}
+
+\renewcommand{\abstractname}{\textsc{Resumen}} %Muestra "Resumen" en lugar de "Abstract"
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    allcolors=blue,
+    %pdftitle={Mi Documento},
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksnumbered=true
+}
+
+\usepackage{bookmark}
+
+\date{}
+
+\begin{document}
+
+   \input{title.tex}
+   \vspace{1cm}
+
+   \begin{abstract}
+      \input{abstract}
+        
+      \vspace{0.3cm}
+      \textsc{Palabras Clave.} Haz; espacio étalé; prehaz; homeomorfismo local; manojo; hacificación; equivalencia de categorías; local vs global.
+   \end{abstract}
+
+   % \vspace{1cm}
+
+   %\tableofcontents
+
+   \section{Haz como funtor}
+      \input{HazComoFuntor/HazComoFuntor.tex}
+   \section{Espacios étalé o espacios fibrados}
+      \input{EspaciosEtale/EspaciosEtale.tex}
+      \section{De manojos a prehaces}\label{section:BundToPreSh}
+      \input{BundToPreSh}
+      \section{De prehaces a manojos}\label{section:PreShToBund}
+      \input{PreShToBund/PreShToBund.tex}
+   \section{Diálogo entre funtores}
+      \input{Dialogo/Dialogo.tex}
+   \newpage
+   \section{Apéndice}\label{section:Apendice}
+      \input{Anexos/Anexos.tex}
+   \newpage
+   %Qué preguntas quedan abiertas
+      %Conocer más las flechas de Sh(X)
+      %Funtores adjuntos como mejoradores de estructura
+      %Topos de Grothendieck, obvio
+      %Estudiar explícitamente la categoría de haces sobre un espacio topológico fijo; por ejemplo, sobre un espacio topológico sobre un punto, produce la categoría \Set
+   \nocite{*}
+   \bibliographystyle{apalike}
+   \bibliography{refs.bib}
+\end{document}

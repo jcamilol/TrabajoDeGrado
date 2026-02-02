@@ -1,0 +1,58 @@
+Continuando con nuestro ``ejemplo como motivación" (Sección \ref{subsection:EjemploMotivacion}), resaltamos la importancia, para la validez de la propiedad \textbf{(P2)}, de la existencia de una buena ``condición de pegado", en el sentido de que las funciones $f|^{U}_{U_i}$ ($i\in I$) se respetan dondequiera que se solapen: para cualesquiera $i,j\in I$ y cualquier $x\in U_i\cap U_j$, se tiene $f|^U_{U_i}(x)=f(x)=f|^U_{U_j}(x)$; es este buen comportamiento local en subconjuntos de $U$ lo que nos permite el paso a un conocimiento global de $U$ mediante la función continua $f$ que se reconstruye al pegar los elementos de la familia $\left\lbrace f|^U_{U_i}\right\rbrace_{i\in I}$. Notemos que $\left\lbrace f|^U_{U_i}\right\rbrace_{i\in I}$ es un elemento del producto cartesiano $\prod_{i\in I} CU_i$. Como, para cualesquiera $i,j\in I$ se tiene $f|^U_{U_i}\in CU_i$ y $f|^U_{U_j}\in CU_j$, y como $U_i\cap U_j\subseteq U_i$ y $U_i\cap U_j\subseteq U_j$, obtenemos, fruto de restringir adecuadamente a intersecciones, las funciones $({f|^U_{U_i}})|^{U_i}_{U_i\cap U_j}, ({f|^U_{U_j}})|^{U_j}_{U_i\cap U_j}\in C(U_i\cap U_j)$, con las cuales formamos las familias $\left\lbrace ({f|^U_{U_i}})|^{U_i}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$ y $\left\lbrace ({f|^U_{U_j}})|^{U_j}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$, que a su vez son elementos del producto cartesiano $\prod_{(i,j)\in I\times I}C(U_i\cap U_j)$. Estas construcciones nos sugieren la definición de las siguientes funciones:
+\begin{itemize}
+   \item $e:CU\to \prod_{i\in I}CU_i$ que a cada $f\in CU$ le asigna la familia $\left\lbrace f|^{U}_{U_i}\right\rbrace_{i\in I}$.
+   \item $\pi_1:\prod_{i\in I}CU_i\to \prod_{(i,j)\in I\times I}C(U_i\cap U_j)$ que a cada $\left\lbrace f_i\right\rbrace_{i\in I}\in\prod_{i\in I}CU_i$ le asigna la familia $\left\lbrace {f_i}|^{U_i}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$.
+   \item $\pi_2:\prod_{i\in I}CU_i\to \prod_{(i,j)\in I\times I}C(U_i\cap U_j)$ que a cada $\left\lbrace f_i\right\rbrace_{i\in I}\in\prod_{i\in I}CU_i$ le asigna la familia $\left\lbrace {f_j}|^{U_j}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$.
+\end{itemize}
+\begin{Prop}\label{Prop:P2}
+   En $\normalfont{\textbf{Set}}$ el siguiente es un diagrama igualador
+   \input{Diagramas/Diag5.tex}
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item Dado $f\in CU$ tenemos
+         $$
+         \begin{aligned}
+            (\pi_1\circ e)(f)&=\pi_1(e(f))\\
+                             &=\pi_1\left(\left\lbrace f|^U_{U_i}\right\rbrace_{i\in I}\right)\\
+                             &=\left\lbrace (f|^U_{U_i}\right)|^{U_i}_{U_i\cap U_j}\rbrace_{(i,j)\in I\times I}\\
+                             &=\left\lbrace f|^U_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}\\
+                             &=\left\lbrace (f|^U_{U_j})|^{U_j}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}\\
+                             &=\pi_2\left(\left\lbrace f|^U_{U_i}\right\rbrace_{i\in I}\right)\\
+                             &=\pi_2(e(f))\\
+                             &=(\pi_2\circ e)(f),
+         \end{aligned}
+         $$
+         y por tanto $\pi_1\circ e=\pi_2\circ e$.
+      \item Veamos que la pareja $\left( CU,e\right)$ es universal con la anterior propiedad. Supongamos que existen $X\in\normalfont{\textbf{Set}}$ y $u:X\to\prod_{i\in I}CU_i$ en $\normalfont{\textbf{Set}}$ tales que $\pi_1\circ u=\pi_2\circ u$.
+         \input{Diagramas/Diag7.tex}
+         Para cada $g\in X$, existe $\left\lbrace g_i\right\rbrace_{i\in I}\in\prod_{i\in I}CU_i$ tal que $g(u)=\left\lbrace g_i\right\rbrace_{i\in I}$. Para todo $i\in I$ tenemos que $g_i:U_i\to \mathbb{R}$ es una función continua, y además $\pi_1\circ u=\pi_2\circ u$ implica $\left\lbrace {g_i}|^{U_i}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}=\left\lbrace {g_j}|^{U_j}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$, con lo cual para cualesquiera $i,j\in I$ se tiene $g_i|^{U_i}_{U_i\cap U_j}=g_j|^{U_j}_{U_i\cap U_j}$ y $g_i(x)=g_i|^{U_i}_{U_i\cap U_j}(x)=g_j|^{U_j}_{U_i\cap U_j}(x)=g_j(x)$ para todo $x\in U_i\cap U_j$. Podemos por tanto usar el lema de pegado (Teorema \Ref{Tma:lemaPegado}) para afirmar que $\bigcup_{i\in I}g_i$ es una función continua de $U$ en $\mathbb{R}$, es decir, $\bigcup_{i\in I}g_i\in CU$. Definimos así $v:X\to CU$ vía $v(g)=\bigcup_{i\in I}g_i$ para cada $g\in X$. Como 
+         $$
+         \begin{aligned}
+            (e\circ v)(g)&=e(v(g))\\
+                         &=e(\bigcup_{i\in I}g_i)\\
+                         &=\left\lbrace (\bigcup_{j\in I}g_j)|^U_{U_i}\right\rbrace_{i\in I}\\
+                         &=\left\lbrace g_i\right\rbrace_{i\in I}\\
+                         &=u(g),
+         \end{aligned}
+         $$
+         entonces $e\circ v=u$. Ahora, supongamos que existe $v':X\to CU$ en $\normalfont{\textbf{Set}}$ tal que $e\circ v'=u$. Entonces para toda $g\in X$ se tiene
+         $$
+         \begin{aligned}
+            \left\lbrace (v'(g))|^U_{U_i}\right\rbrace_{i\in I}&=u(g)\\
+                                                               &=e(v(g))\\
+                                                               &=\left\lbrace (v(g))|^U_{U_i}\right\rbrace_{i\in I},
+         \end{aligned}
+         $$
+         y por tanto $(v'(g))|^U_{U_i}=(v(g))|^U_{U_i}$ para todo $i\in I$. Con lo anterior
+         $$
+         \begin{aligned}
+            v'(g)&=\bigcup_{i\in I}(v'(g))|^U_{U_i}\\
+                 &=\bigcup_{i\in I}(v(g))|^U_{U_i}\\
+                 &=v(g),
+         \end{aligned}
+         $$
+         obteniendo $v'=v$, lo cual completa la prueba.  
+   \end{itemize}
+\end{proof}
+Notemos que la Proposición \Ref{Prop:P2} vale para cualesquiera que sean el conjunto abierto $U$ y el cubrimiento abierto $\left\lbrace U_i\right\rbrace_{i\in I}$ de $U$. El hecho de que $e$ sea el igualador de $\pi_1$ y $\pi_2$ nos traduce la ``condición de pegado" que se satisface al restringir funciones continuas de $U$ a subconjuntos de éste, a saber, que las funciones resultantes coincidan en las respectivas intersecciones. Es a su vez ésta condición de pegado la que, mediante el Teorema \Ref{Tma:lemaPegado}, nos permite el paso de lo local a lo global que se expresa en la propiedad $\textbf{(P2)}$. 

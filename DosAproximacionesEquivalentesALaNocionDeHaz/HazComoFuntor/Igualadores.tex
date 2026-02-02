@@ -1,0 +1,35 @@
+\begin{Def}
+   En una categoría arbitraria $\textbf{C}$, sean $f,g:A\to B$ flechas paralelas. Un igualador de $f$ y $g$ es una pareja $\left( E,e\right)$, con $E\in\textbf{C}$ y $e:E\to A$ en $\textbf{C}$, tal que $f\circ e=g\circ e$, y que es universal con esta propiedad, en el sentido de que si hay otra pareja $\left( U,u\right)$ con $U\in \textbf{C}$ y $u:U\to A$ en $\textbf{C}$, tal que $f\circ u=g\circ u$, entonces existe una única flecha $v:U\to E$ en $\textbf{C}$ tal que $e\circ v=u$. 
+\end{Def}
+En el siguiente diagrama conmutativo, que denominamos como `` diagrama igualador", se resume la anterior definición:
+\input{Diagramas/Diag3.tex}
+
+Los ejemplos de igualadores que más estaremos trabajando son aquellos que aparecen en la categoría \normalfont{\textbf{Set}}:
+\begin{Ejm}
+   Sean $A$ y $B$ conjuntos y $f,g$ funciones de $A$ en $B$. Verifiquemos que un igualador de $f$ y $g$ está dado por $\left( E,e\right)$, donde $E=\left\lbrace a\in A\mid f(a)=g(a)\right\rbrace$ y $e$ es la función inclusión de $E$ en $A$:
+   \begin{itemize}
+      \item Dado $x\in E$ se tiene $(f\circ e)(x)=f(e(x))=f(x)=g(x)=g(e(x))=(g\circ e)(x)$, es decir, $f\circ e=g\circ e$.
+      \item Supongamos que existe $\left( U,u\right)$ con $U\in \normalfont{\textbf{Set}}$ y $u:U\to A$ en $\normalfont{\textbf{Set}}$, tal que $f\circ u=g\circ u$. Podemos definir $v:U\to E$ vía $v(x)=u(x)$ para todo $x\in U$, e inmediatamente se tendrá $e\circ v=u$; igualmente, si $v'$ es una fleca de $U\to E$ en $\normalfont{\textbf{Set}}$ tal que $e\circ v'=u$ entonces para cada $x\in U$ se tiene $v'(x)=e(v'(x))=u(x)=e(v(x))=v(x)$, de modo que $v=v'$.
+   \end{itemize}
+\hspace{\fill}$\Diamond$
+\end{Ejm}
+En la práctica, si no hay lugar a confusiones, nos referimos indistintamente por `` igualador" tanto al par $\left( E,e\right)$ como simplemente a la flecha $e$. Directamente de la definición de igualadores, podemos derivar algunas propiedades que serán útiles más adelante:
+\begin{Prop}\label{Prop:Igualadores1}
+   En cualquier categoría, todo igualador es un monomorfismo.  
+\end{Prop}
+\begin{proof}
+   Sean $\textbf{C}$ una categoría, $f,g:A\to B$ flechas paralelas en $\textbf{C}$ y $\left( E,e\right)$ un igualador de $f$ y $g$. Supongamos que existen flechas $i,j:F\to E$ en $\textbf{C}$ tales que $e\circ i=e\circ j$.
+   \input{Diagramas/Diag6.tex}
+   Tenemos $(f\circ e)\circ j=(g\circ e)\circ j$, es decir, $f\circ (e\circ j)=g\circ (e\circ j)$. Como $e$ es un igualador de $f$ y $g$, existe una única flecha $k:F\to E$ en $\textbf{C}$ tal que $e\circ k=e\circ j$; trivialmente $j$ cumple esta propiedad, pero también lo hace $i$, pues por hipótesis $e\circ i=e\circ j$. Se sigue que $i=j$ y por tanto $e$ es un monomorfismo en $\textbf{C}$.
+
+\end{proof}
+Como en \normalfont{\textbf{Set}}, para una flecha es lo mismo ser monomorfismo que ser una función inyectiva, como corolario de lo anterior obtenemos que cualquier igualador en \normalfont{\textbf{Set}} es una función inyectiva.
+\begin{Prop}\label{Prop:Igualadores2}
+   Supongamos que en \normalfont{\textbf{Set}} el siguiente es un diagrama igualador:
+   \input{Diagramas/Diag4.tex}
+   Entonces, para todo $a\in A$ tal que $f(a)=g(a)$, existe $\alpha\in E$ tal que $e(\alpha)=a$.
+\end{Prop}
+\begin{proof}
+  Definimos $F:=\left\lbrace x\in A\mid f(x)=g(x)\right\rbrace (\subseteq A)$. Por la Proposición \ref{Prop:Igualadores1}, sabemos que $\left( F,\normalfont{in}_{F,A}\right)$ (donde $\normalfont{in}_{F,A}$ es la función inclusión de $F$ en $A$), es un igualador de $f$ y $g$, con lo cual, existe una única flecha $v:F\to E$ tal que $e\circ v=\normalfont{in}_{F,A}$. Como $a\in F$, tenemos $\alpha:=v(a)\in E$ y $e(\alpha)=e(v(a))=\normalfont{in}_{F,A}(a)=a$. 
+
+\end{proof}

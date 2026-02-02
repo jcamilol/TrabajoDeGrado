@@ -1,0 +1,19 @@
+\begin{Prop}
+   Si $p:Y\to X$ es un homeomorfismo local, entonces $p$ es una función continua y abierta. Además, la colección de todos los conjuntos abiertos de $Y$ que satisfacen \textit{(i)} y \textit{(ii)} de la Definición \Ref{Def:HomeomorfismoLocal} forman una base para la topología de $Y$.
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item Probamos la continuidad de $p$ puntualmente. Sean $y\in Y$ y $U\subseteqab X$ con $p(y)\in U$. Tenemos que $y\in V_y\subseteqab Y$ y $p(y)\in p(V_y)\subseteqab X$. Tomando $W=p(V_y)\cap U$ se tiene $p(y)\in W\subseteqab X$. Además $W\subseteq p(V_y)$ y $W\subseteq U$. Como $p|^{Y}_{V_y}:V_y\to p(V_y)$ es un homeomorfismo, entonces $p^{-1}(W)=(p|^{Y}_{V_y})^{-1}(W)\subseteqab V_y \subseteqab Y$, así que $y\in p^{-1}(W)\subseteqab Y$; igualmente, $p(p^{-1}(W))\subseteq W \subseteq U$, lo cual prueba que $p$ es continua en $y$. Como $y$ es arbitraria en $Y$, obtenemos que $p:Y\to X$ es continua.
+      \item Sea $V\subseteqab Y$; probemos que $p(V)\subseteqab X$. Para cada $y\in V$ definimos $W_y=V_y\cap V\subseteqab V_y$. Como $p|^{V}_{V_y}:V_y\to p(V_y)$ es un homeomorfismo, en particular es una función abierta, luego $p(W_y)=(p|^{V}_{V_y})(W_y)\subseteqab p(V_y)$; como $p(V_y)\subseteqab X$ entonces $p(W_y)\subseteqab X$ para cada $y\in V$, luego $\bigcup_{y\in V} p(W_y)\subseteqab X$. Ya que
+         $$
+         \begin{aligned}
+            \bigcup_{y\in V}p(W_y)&=\bigcup_{y\in V}p(V\cap V_y)\\
+                                  &=p\left( \bigcup_{y\in V}(V\cap V_y)\right)\\
+                                  &=p\left( V\cap\bigcup_{y\in V}V_y\right)\\
+                                  &=p(V),
+         \end{aligned}
+         $$
+         pues $V\subseteq \bigcup_{y\in V}V_y$, entonces $p(V)\subseteqab X$. Obtenemos así que $p:Y\to X$ es una función abierta.
+      \item Llamemos $\mathcal{B}=\left\lbrace W\subseteqab Y\mid p(W)\subseteqab X,\phantom{o} p|^{Y}_{W}:W\to p(W)\text{ es homeomorfismo}\right\rbrace$ y probemos que $\mathcal{B}$ es una base para la topología de $Y$. Sean $V\subseteqab Y$ y $y\in V$. Llamemos $W_y=V_y\cap V$, de modo que $y\in W_y\subseteq V$. Como $V_y\subseteqab Y$ entonces $W_y\subseteqab Y$. Tenemos que $p|^{Y}_{V_y}:V_y\to p(V_y)$ es un homeomorfismo; como $W_y\subseteqab V_y$ y todo homeomorfismo es en particular una función abierta, obtenemos $p(W_y)=(p|^{Y}_{V_y})(W_y)\subseteqab p(V_y) \subseteqab X$, de modo que $p(W_y)\subseteqab X$; además, ya que la restricción de homeomorfismos es un homeomorfismo, entonces $(p|^{Y}_{V_y})|^{V_y}_{W_y}=p|^{Y}_{W_y}:W_y\to p(W_y)$ es un homeomorfismo. Así, $W_y\in \mathcal{B}$, y $\mathcal{B}$ es base para la topología de $Y$.
+   \end{itemize}
+\end{proof}

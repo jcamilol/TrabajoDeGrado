@@ -1,0 +1,87 @@
+(A lo largo de esta sección y la siguiente, $X$ denota un espacio topológico fijo).
+
+En esta sección construimos y estudiamos un funtor $\Gamma$ de la categoría $\Top /X$ de los manojos sobre $X$, en la categoría $\PreSh (X)$ de prehaces sobre $X$.
+
+\begin{Def}[Acción de $\Gamma_p$ sobre objetos]
+   Sea $p:Y\to X$ un manojo sobre $X$. Para cada $U\in\mathcal{O}(X)$ definimos $\Gamma_p U$ como el conjunto de todas las secciones transversales de $p$ sobre $U$.
+   \input{Diagramas/Diag11.tex}
+\end{Def}
+Notemos que si se tiene la flecha $V\subseteq U$ en $\mathcal{O}(X)$, para cada $s\in\Gamma_p U$ surge una sección transversal de $p$ sobre $V$, a saber, $s\circ \iota_{V,U}=s|^{U}_{V}$, es decir $s|^{U}_{V}\in\Gamma_p V$:
+\input{Diagramas/Diag12.tex}
+\begin{Def}[Acción de $\Gamma_p$ sobre flechas]
+   Sea $p:Y\to X$ un manojo sobre $X$. Para cada flecha $V\subseteq U$ en $\mathcal{O}(X)$, definimos la flecha (de $\Set$) $\Gamma_p(V\subseteq U):\Gamma_p U\to \Gamma_p V:s\mapsto s|^{U}_{V}$.
+\end{Def}
+Las anteriores asignaciones de flechas y objetos hacen de $\Gamma_p$ un funtor contravariante $\Gamma_p:\mathcal{O}(X)^{\text{op}}\to \Set$, es decir, un prehaz sobre $X$; más aún, $\Gamma_p$ resulta ser un haz sobre $X$.
+\begin{Prop}
+   Para cada manojo $p:Y\to X$, $\Gamma_p$ es un haz sobre $X$.
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item La prueba de que $\Gamma_p$ es un prehaz sobre $X$ es similar a la que se da para la Proposición ($\Ref{Prop:P1}$).
+      \item Sean $U\in \mathcal{O}(X)$ y $\left\lbrace U_i\right\rbrace_{i\in I}$ un cubrimiento abierto de $U$. El siguiente diagrama en $\Set$ es un igualador:
+         \input{Diagramas/Diag13.tex}
+         La prueba de esto es similar a la que se da para la Proposición (\Ref{Prop:P2}), sumada al siguiente hecho: dada una familia $\left\lbrace g_i\right\rbrace_{i\in I}\in \prod_{i\in I}\Gamma_p U_i$, se tiene $p\circ \bigcup_{i\in I} g_i=\iota_{U,X}$: dada $x\in U=\bigcup_{i\in I}U_i$, existe $j\in I$ tal que $x\in U_j$; como $g_j:U_j\to Y$ es una sección transversal de $p$ sobre $U_j$, se tiene $p\circ g_j = \iota_{U_j,X}$, y por tanto
+         $$
+         \begin{aligned}
+            \left(p\circ \bigcup_{i\in I}g_i\right)(x)&=p\left( \bigcup_{i\in I}g_i(x)\right)\\
+                                           &=p(g_j(x))\\
+                                           &=\iota_{U_j,X}(x)\\
+                                           &=x\\
+                                           &=\iota_{U,X}(x);
+         \end{aligned}
+         $$
+         con esto $p\circ \bigcup_{i\in I}g_i=\iota_{U,X}$. Lo anterior se hace para garantizar $\bigcup_{i\in I}g_i\in \Gamma_p U$.
+   \end{itemize}
+   Por tanto $\Gamma_p$ es un haz sobre $X$.
+\end{proof}
+A los haces del tipo $\Gamma_p$, con $p:Y\to X$ un manojo sobre $X$, los llamamos \textit{haces de secciones transversales} sobre $X$. En ocaciones denotamos $\Gamma Y$ en lugar de $\Gamma_p$. Obtenemos por cada $p\in\Top /X$ un objeto $\Gamma_p \in \Sh (X)$. Ahora deseamos obtener, por cada flecha $f:\left( Y,p \right) \to \left( Y',p'\right)$ en $\Top /X$, una flecha $\Gamma_f:\Gamma_p\to\Gamma_{p'}$ de $\Sh(X)$, es decir, una transformación natural entre los funtores $\Gamma_p,\Gamma_{p'}:\mathcal{O}(X)^\text{op}\to\Set$; para esto necesitamos asignar, para cada $U\in\mathcal{O}(X)$, una función $\Gamma_f U$ entre los conjuntos $\Gamma_p U$ y $\Gamma_p' U$, que además nos garantice que si $V\subseteq U$ es una flecha en $\mathcal{O}(X)$, entonces el siguiente diagrama de $\Set$ conmute:
+\input{Diagramas/Diag14}
+Notemos que la función $\Gamma_f U$ nos exige asignar a cada sección transversal $s$ de $p$ sobre $U$ (i.e. $s:U\to Y$ es una función continua y $p\circ s=\iota_{U,X}$) una sección transversal $\Gamma_f U (s)$ de $p'$ sobre $U$ (i.e. una función continua $\Gamma_f U (s):U\to Y'$ tal que $p'\circ \Gamma_f U(s)=\iota_{U,X}$). El siguiente diagrama que se forma en $\Top /X$
+\input{Diagramas/Diag15}
+nos muestra que $f\circ s$ es una función continua de $U$ en $Y$, y
+$$
+\begin{aligned}
+   p'\circ (f\circ s)&=(p'\circ f)\circ s\\
+                     &=p\circ s\\
+                     &=\iota_{U,X},
+\end{aligned}
+$$
+sugiriéndonos tomar $\Gamma_f U (s)=f\circ s$. Con esto tenemos
+$$
+\begin{aligned}
+   (\Gamma_f V\circ\Gamma_p(V\subseteq U))(s) &=\Gamma_f V(\Gamma_p (V\subseteq U)(s))\\
+                                              &= \Gamma_f V(s|^{U}_{V})\\
+                                              &=f\circ s|^{U}_{V}\\
+                                              &=f\circ (s\circ \iota_{V,U})\\
+                                              &=(f\circ s)\circ \iota_{V,U}\\
+                                              &=(f\circ s)|^{U}_{V}\\
+                                              &=\Gamma_{p'}(V\subseteq U)(f\circ s)\\
+                                              &=\Gamma_{p'}(V\subseteq U)(\Gamma_f U(s))\\
+                                              &=(\Gamma_{p'}(V\subseteq U)\circ\Gamma_f U)(s),\\
+\end{aligned}
+$$
+Y por tanto $\Gamma_f V\circ \Gamma_p(V\subseteq U)=\Gamma_{p'}(V\subseteq U)\circ \Gamma_f U$. Lo anterior prueba que $\Gamma_f$ es una transformación natural, para cada flecha $f$ en $\Top /X$. Estas asignaciones hacen de $\Gamma$ un funtor de $\Top /X$ en $\PreSh(X)$ (de hecho, en $\Sh(X)$, pero las razones de tomar la categoría de prehaces sobre $X$ como codominio de $\Gamma$ se entenderán más adelante):
+\begin{Prop}
+   Las asignaciones $p\mapsto \Gamma_p$ para cada $p\in \Top /X$ y $f\mapsto \Gamma_f$ para cada flecha $f$ en $\Top /X$, determinan un funtor $\Gamma:\Top /X\to\PreSh(X)$.   
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item Veamos que $\Gamma$ respeta identidades. Sea $\left( Y, p\right)\in \Top /X$. Debemos ver $\Gamma_{1_{p}}=1_{\Gamma_{p}}$, donde $1_{\Gamma_{p}}$ es la transformación natural identidad del funtor $\Gamma_p$ en sí mismo. Dados $U\in \mathcal{O}(X)$ y $s\in \Gamma_p U$, tenemos que $\Gamma_{1_p} U$ es una función de $\Gamma_p U$ en $\Gamma_p U$ y $\Gamma_{1_p}U(s)=1_p\circ s=s$; por tanto $\Gamma_{1_p}U=1_{\Gamma_p U}=1_{\Gamma_p}U$. Como lo anterior se tiene para $U\in \mathcal{O}(X)$ arbitrario, se sigue que $\Gamma_{1_p}=1_{\Gamma_p}$.
+      \item Veamos que $\Gamma$ respeta composiciones. Supongamos que tenemos en $\Top /X$ el siguiente diagrama conmutativo
+         \input{Diagramas/Diag16}
+         y veamos que en $\PreSh(X)$ el siguiente diagrama conmuta:
+         \input{Diagramas/Diag17}
+         Sean $U\in\mathcal{O}(X)$ y $s\in\Gamma_p U$. Tenemos
+         $$
+         \begin{aligned}
+            (\Gamma_{g\circ f}U)(s)&=(g\circ f)\circ s\\
+                                   &=g\circ(f\circ s)\\
+                                   &=(\Gamma_{g}U)(f\circ s)\\
+                                   &=(\Gamma_{g}U)(\Gamma_{f}U(s))\\
+                                   &=(\Gamma_{g}U\circ\Gamma_{f}U)(s).
+         \end{aligned}
+         $$
+         Por tanto $\Gamma_{g\circ f}U=\Gamma_{g}U\circ\Gamma_{f}U$; como esto vale para $U\in\mathcal{O}(X)$ arbitrario, se sigue $\Gamma_{g\circ f}=\Gamma_{g}\bullet\Gamma_{f}$.
+   \end{itemize}
+   Lo anterior prueba que $\Gamma$ es un funtor de $\Top /X$ en $\PreSh(X)$.
+\end{proof}

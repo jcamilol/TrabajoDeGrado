@@ -1,0 +1,33 @@
+\begin{Prop}\label{Prop:ConjuntoEsBase}
+   Sea $\Sigma$ una familia de subconjuntos de $X$. Se tiene que $\Sigma$ es base para una topología sobre $X$, si y solo si, tanto $X$ como la intersección de cualesquiera dos elementos de $\Sigma$, es unión de elementos de $\Sigma$.
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item[$(\Rightarrow)$] Supongamos que $\Sigma$ es base para una topología sobre $X$. Como $X$ es abierto, es unión de elementos de $\Sigma$. Como los elementos de $\Sigma$ son en particular abiertos, la intersección de dos elementos de $\Sigma$ es abierta y por tanto es unión de elementos de $\Sigma$.
+      \item[$(\Leftarrow)$] Supongamos que $X$ es unión de elementos de $\Sigma$ y que la intersección de cualesquiera dos elementos de $\Sigma$ es unión de elementos de $\Sigma$. Sea $\tau_\Sigma$ el conjunto de uniones arbitrarias de elementos de $\Sigma$. Veamos que $\tau_\Sigma$ es una topología sobre $X$:
+         \begin{itemize}
+            \item[$\bullet$] Como los elementos de $\Sigma$ son subconjuntos de X, entonces la unión de elementos de $\Sigma$ es subconjunto de $X$, de modo que $\tau_\Sigma$ es una familia de subconjuntos de $X$.
+            \item[$\bullet$] $X$ es unión de elementos de $\Sigma$, así que $X\in\tau_\Sigma$. El conjunto $\phi$ es la unión vacía de elementos de $\Sigma$, así que $\phi\in \tau_\Sigma$.
+            \item[$\bullet$] Sea $\left\lbrace U_i\right\rbrace_{i\in I}$ una familia de elementos de $\tau_\Sigma$. Para cada $i\in I$ existe una familia $\left\lbrace V^{i}_{j}\right\rbrace_{j\in J}$ de elementos de $\Sigma$ tal que $U_i=\bigcup_{j\in J}V^{i}_{j}$. Por tanto 
+               $$
+               \begin{aligned}
+                  \bigcup_{i\in I}U_i&=\bigcup_{i\in I}\left( \bigcup_{j\in J}V^{i}_{j}\right)\\
+                                     &=\bigcup_{{i\in I}\atop {j\in J}}V^{j}_{i},
+               \end{aligned}
+               $$
+               luego $\bigcup_{i\in I}U_i$ es unión de elementos de $\Sigma$ y por tanto pertenece a $\tau_\Sigma$.
+            \item[$\bullet$] Sean $U,V\in \tau_\Sigma$. Existen $\left\lbrace U_i\right\rbrace_{i\in I}$, $\left\lbrace V_j\right\rbrace_{j\in J}$, familias de elementos de $\Sigma$ tales que $U=\bigcup_{i\in I}U_i$ y $V=\bigcup_{j\in J}V_j$. Entonces
+               $$
+               \begin{aligned}
+                  U\cap V&=U\cap{\bigcup_{j\in J}V_j}\\
+                         &=\bigcup_{j\in J}(U\cap V_j)\\
+                         &=\bigcup_{j\in J}\left( \left( \bigcup_{i\in I}U_i\right)\cap V_j\right)\\
+                         &=\bigcup_{j\in J}\left( \bigcup_{i\in I}(U_i\cap V_j)\right)\\
+                         &=\bigcup_{{i\in I}\atop {j\in J}}(U_i\cap V_j),
+               \end{aligned}
+               $$
+               y $U_i\cap V_j\in\Sigma$ para cualesquiera $i\in I, j\in J$, así que $U\cap V$ es unión de elementos de $\Sigma$, es decir $U\cap V\in \tau_\Sigma$.
+         \end{itemize}
+         Lo anterior prueba que $\tau_\Sigma$ es una topología sobre $X$. El hecho de que $\Sigma$ es base para $\tau_\Sigma$ es trivial, pues cada elemento de $\tau_\Sigma$ es unión de elementos de $\Sigma$.
+   \end{itemize}
+\end{proof}

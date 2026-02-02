@@ -1,0 +1,47 @@
+\begin{Prop}
+   Sean $U\subseteqab X$ y $s$ una sección transversal, de un espacio étalé $\left( p, Y\right)$, sobre $U$. Entonces:
+   \begin{itemize}
+      \item[(i)] $p|^{Y}_{s(U)}=s^{-1}$.
+      \item[(ii)] $s:U\to s(U)$ es un homeomorfismo.
+      \item[(iii)] $s(U)$ es un subconjunto abierto de $Y$.
+   \end{itemize}
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item[(i)] Dado $x\in U$ tenemos
+         $$
+         \begin{aligned}
+            (p|^Y_{s(U)}\circ s)(x)&=p|^Y_{s(U)}(s(x))\\
+                                   &=p(s(x))\\
+                                   &=in_{U,X}(x)\\
+                                   &=x\\
+                                   &=1_U(x),
+         \end{aligned}
+         $$
+         luego $p|^Y_{s(U)}\circ s=1_U(x)$. Dado $y\in s(U)$, existe $z\in U$ tal que $y=s(z)$, y:
+         $$
+         \begin{aligned}
+            (s\circ p|^Y_{s(U)})(y)&=s(p|^Y_{s(U)}(y))\\
+                                  &=s(p(y))\\
+                                  &=s(p(s(z)))\\
+                                  &=s(z)\\
+                                  &=y,
+         \end{aligned}
+         $$
+         de modo que $s\circ p|^{Y}_{s(U)}=1_{s(U)}$. Esto prueba \textit{(i)}.
+      \item[(ii)] Sabemos que $s$ es una función continua, y su inversa $p|^Y_{s(U)}$ es continua por ser la restricción de una función continua; por tanto, $s:U\to s(U)$ es un homeomorfismo.
+   \item[(iii)] Ahora veamos que $s(U)\subseteqab Y$. Sea $y\in s(U)$. Dado $x\in s^{-1}(V_y)$, tenemos $s(x)\in V_y$ y $x=p(s(x))\in p(V_y)$; por tanto $s^{-1}(V_y)\subseteq p(V_y)$. Como $V_y\subseteqab Y$ y $s:U\to Y$ es continua, entonces $s^{-1}(V_y)\subseteqab U$; como $U\subseteqab X$, entonces $s^{-1}(V_y)\subseteqab X$ y $s^{-1}(V_y)\subseteqab p(V_y)$. Como $p|^Y_{V_y}$ es en particular continua, se tiene $(p|^Y_{V_y})^{-1}(s^{-1}(V_y))\subseteqab V_y$; como $V_y\subseteqab Y$ entonces $(p|^Y_{V_y})^{-1}(s^{-1}(V_y))\subseteqab Y$. Además, como $y\in s(U)$, se sigue que $s(p|^Y_{V_y}(y))=s(p|^Y_{s(U)}(y))=s(s^{-1}(y))=y\in V_y$ y por tanto $y\in (p|^Y_{V_y})^{-1}(s^{-1}(V_y))$. Así, nos falta probar que $(p|^Y_{V_y})^{-1}(s^{-1}(V_y))\subseteq s(U)$; para esto basta ver que $(p|^Y_{V_y})^{-1}(s^{-1}(V_y))=V_y\cap s(U)$:
+      \begin{itemize}
+         \item[$\subseteq$:] Por definición sabemos que $(p|^Y_{V_y})^{-1}(s^{-1}(V_y))\subseteq V_y$. Sea $t\in (p|^Y_{V_y})^{-1}(s^{-1}(V_y))$. Tenemos que $s(p|^Y_{V_y}(t))\in V_y$ y $p|^Y_{V_y}(t)\in s^{-1}(V_y)\subseteq U$. Además,
+            $$
+               p|^Y_{V_y}(s(p|^Y_{V_y}(t)))= p(s(p|^Y_{V_y}(t)))=p|^Y_{V_y}(t).
+            $$
+            Como $p|^Y_{V_y}$ es en particular inyectiva, obtenemos $t=s(p|^Y_{V_y}(t))$; ya que $p|^Y_{V_y}(t)\in U$, se sigue $t\in s(U)$. Con lo anterior se tiene $(p|^Y_{V_y})^{-1}(s^{-1}(V_y))\subseteq s(U)$ y por lo tanto $(p|^Y_{V_y})^{-1}(s^{-1}(V_y))\subseteq V_y\cap s(U)$.
+         \item[$\supseteq$:] Sea $t\in V_y\cap s(U)$. Tenemos $p|^Y_{V_y}(t)=p(t)=p|^Y_{s(U)}(t)$, luego
+            $$
+               s(p|^Y_{V_y}(t))=s(p|^Y_{s(U)}(t))=s(s^{-1}(t))=t\in V_y,
+            $$
+            de modo que $t\in (p|^Y_{V_y})^{-1}(s^{-1}(V_y))$. Así, $V_y\cap s(U)\subseteq (p|^Y_{V_y})^{-1}(s^{-1}(V_y))$. 
+      \end{itemize}
+   \end{itemize}
+\end{proof}

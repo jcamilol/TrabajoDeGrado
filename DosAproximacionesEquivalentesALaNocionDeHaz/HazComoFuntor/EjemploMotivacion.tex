@@ -1,0 +1,41 @@
+Una constante en el quehacer matemático es el tránsito entre aspectos locales y aspectos globales. Consideremos un ejemplo enmarcado en el área de la topología. Sean $X$ un espacio topológico y $U$ un subconjunto abierto de $X$, al cual dotamos con un cubrimiento $\left\lbrace U_i\right\rbrace_{i\in I}$ de subconjuntos abiertos de $U$. Una función continua $f:U\to \mathbb{R}$ se presenta como una herramienta para entender globalmente el conjunto $U$, y fácilmente nos permite pasar al conocimiento local de $U$ en el siguiente sentido:
+\begin{itemize}
+   \item[\textbf{(P1)}] Si $V\stackrel{ab}\subseteq U$ entonces $f|^U_V:V\to\mathbb{R}$ (la restricción de $f$ de $U$ a $V$) es también una función continua. 
+\end{itemize}
+De forma recíproca, gracias al lema de pegado (Teorema \ref{Tma:lemaPegado}), un apropiado conocimiento local de $U$ nos permite pasar a un conocimiento global, en la siguiente forma:
+\begin{itemize}
+   \item[\textbf{(P2)}] Si $f:U\to \mathbb{R}$ es una función tal que $f|^{U}_{U_i}:U_i\to\mathbb{R}$ es continua para todo $i\in I$, entonces $f$ es continua.
+\end{itemize}
+Las propiedades \textbf{(P1)} y \textbf{(P2)} pueden ser capturadas en lenguaje categórico. Para esto, consideremos la categoría $\mathcal{O}(X)$ que tiene como objetos los subconjuntos abiertos de $X$, y en la cual, dados $U,V\in \mathcal{O}(X)$, hay una flecha de $V$ en $U$ si y solo si $V\subseteq U$; dicha flecha en $\mathcal{O}(X)$ (que será la única de $V$ en $U$) la representamos igualmente mediante ``$V\subseteq U$". Ahora, para cada $U\in\mathcal{O}(X)$ definimos el conjunto $CU$ de todas las funciones reales continuas sobre U:
+$$
+CU:=\left\lbrace f:U\to\mathbb{R}\mid f \text{ es continua}\right\rbrace,
+$$
+y para cualquier flecha $V\subseteq U$ en $\mathcal{O}(X)$, definimos la función de conjuntos
+\input{Diagramas/Diag1.tex}
+que a cada función continua de $U$ en $\mathbb{R}$ le asigna su respectiva función restricción al subconjunto $V$, que a su vez es una función continua de $V$ en $\mathbb{R}$. Tendremos entonces la siguiente propiedad:
+\begin{Prop}\label{Prop:P1}
+   La regla $C$ que a cada $U\in\mathcal{O}(X)$ le asigna el conjunto $CU$ y a cada flecha $V\subseteq U$ en $\mathcal{O}(X)$ le asigna la función restricción de U en V, $C(V\subseteq U): CU\to CV$, es un funtor contravariante de $\mathcal{O}(X)$ en \normalfont{\textbf{Set}}.
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item Trivialmente se tiene que $C$ respeta identidades, pues para cualquier $U\in\mathcal{O}(X)$ tenemos
+         \input{Diagramas/Diag2.tex}
+         es decir, $C(1_U)=1_{C(U)}$.
+      \item Supongamos que en $\mathcal{O}(X)$ tenemos $W\subseteq V\subseteq U$. Entonces $W\subseteq U$ y en \normalfont{\textbf{Set}} tenemos la función restricción de $U$ en $W$, $C(W\subseteq U):CU\to CW$. Tenemos ademas en \normalfont{\textbf{Set}} la composición $C(W\subseteq V)\circ C(V\subseteq U):CU\to CW$. Para cada $f\in CU$ se tiene
+         $$
+         \begin{aligned}
+            (C(W\subseteq V)\circ C(V\subseteq U))(f)&=C(W\subseteq V)(C(V\subseteq U)(f))\\
+                                                     &=C(W\subseteq V)(f|^U_V)\\
+                                                     &=(f|^U_V)|^V_W\\
+                                                     &=f|^U_W\\
+                                                     &=C(W\subseteq U)(f),
+         \end{aligned}
+         $$
+      con lo cual $C(W\subseteq V)\circ C(V\subseteq U) = C(W\subseteq U)$ y $C$ respeta composiciones.
+      \end{itemize}
+\end{proof}
+Con lo anterior, podemos decir que $C$ es un \textbf{prehaz} (de conjuntos):
+\begin{Def}[Prehaz]
+   Un prehaz (de conjuntos) sobre un espacio topológico $X$ es un funtor contravariante de $\mathcal{O}(X)$ en \normalfont{\textbf{Set}}.
+\end{Def}
+La Proposición \ref{Prop:P1} permite capturar de manera categórica la propiedad \textbf{(P1)}. Para lograr hacer lo mismo con la propiedad \textbf{(P2)} introducimos el concepto de \textit{igualadores}.

@@ -1,0 +1,30 @@
+Son situaciones como la anterior las que motivan la definición de haz que daremos en esta sección, y que constituye una generalización natural del proceso que se ha realizado hasta ahora. Para empezar, señalamos algo de notación, que a su vez mantiene registro del germen de las ideas que prosiguen:
+\begin{Not}
+   Dado X un espacio topológico y ${P:\mathcal{O}(X)}^{op}\to\normalfont{\textbf{Set}}$ un funtor (es decir un prehaz de conjuntos sobre $X$) y dada la flecha $V\subseteq U$ en $\mathcal{O}(X)$, para toda $t\in PU$ denotamos 
+   $$
+   t|^{U}_{V}:=(P(V\subseteq U))(t).
+   $$
+\end{Not}
+Ahora generalizamos las funciones $e,\pi_1$ y $\pi_2$ que se trabajaron en la Sección \Ref{subsection:EjemploMotivacionCont}:
+\begin{Def}[Funciones canónicas]
+   Sea $P$ un prehaz sobre un espacio topológico $X$. Dados $U\in\mathcal{O}(X)$ y $\left\lbrace U_i\right\rbrace_{i\in I}$ un cubrimiento abierto de $U$, definimos las siguientes funciones:
+   \begin{itemize}
+      \item $e:PU\to \prod_{i\in I}PU_i$ que a cada $f\in PU$ le asigna la familia $\left\lbrace f|^{U}_{U_i}\right\rbrace_{i\in I}$.
+      \item $\pi_1:\prod_{i\in I}PU_i\to \prod_{(i,j)\in I\times I}P(U_i\cap U_j)$ que a cada $\left\lbrace f_i\right\rbrace_{i\in I}\in\prod_{i\in I}PU_i$ le asigna la familia $\left\lbrace {f_i}|^{U_i}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$.
+      \item $\pi_2:\prod_{i\in I}PU_i\to \prod_{(i,j)\in I\times I}P(U_i\cap U_j)$ que a cada $\left\lbrace f_i\right\rbrace_{i\in I}\in\prod_{i\in I}PU_i$ le asigna la familia $\left\lbrace {f_j}|^{U_j}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$.
+   \end{itemize}
+   Llamamos a $e$ la función canónica de $PU$ en $\prod_{i\in I}PU_i$ y a $\pi_1$ y $\pi_2$ las funciones canónicas de $\prod_{i\in I}PU_i$ en $\prod_{(i,j)\in I\times I}P(U_i\cap U_j)$.
+\end{Def}
+Damos entonces la definición de haz, que garantiza capturar la esencia de las propiedades \textbf{(P1)} y \textbf{(P2)} (paso de lo global a lo local y de lo local a lo global, respectivamente):
+\begin{Def}[Haz de conjuntos]
+   Un haz de conjuntos $P$ sobre un espacio topológico $X$ es un prehaz de conjuntos tal que para cualquier $U\in \mathcal{O}(X)$ y cualquier cubrimiento abierto $\left\lbrace U_i\right\rbrace_{i\in I}$ de $U$, el siguiente es un diagrama igualador:
+   \input{Diagramas/Diag8.tex}
+   donde $e,\pi_1$ y $\pi_2$ son las respectivas funciones canónicas.
+\end{Def}
+En la anterior definición $P$ es por tanto un funtor contravariante de $\mathcal{O}(X)$ en $\normalfont{\textbf{Set}}$. Al variar la categoría $\normalfont{\textbf{Set}}$ por la categoría de anillos, $\mathbb{F}$-álgebras, $\mathbb{F}$-módulos, etc. (para un campo $\mathbb{F}$) obtenemos haces de anillos, de $\mathbb{F}$-álgebras, de $\mathbb{F}$-módulos, etc., respectivamente. Así, el funtor $C$ de nuestro ``ejemplo como motivación", puede verse como un haz de conjuntos, pero también como haz de $\mathbb{R}$-álgebras o $\mathbb{R}$-módulos al dotar cada conjunto $CU$ ($U\in \mathcal{O}(X)$) con las operaciones adecuadas. A $C$ lo llamamos el haz de funciones reales continuas sobre $X$. En el presente escrito nos enfocaremos exclusivamente en haces (prehaces) de conjuntos, y en adelante nos referiremos a ellos simplemente como haces (prehaces).
+
+La colección de todos los haces sobre un espacio topológico tiene estructura de categoría:
+\begin{Def}[Categoría de haces sobre un espacio topológico]
+   Dado un espacio topológico $X$, la categoría de funtores $\normalfont{\textbf{Set}}^{{\mathcal{O}(X)}^{\text{op}}}$ tiene como objetos todos los prehaces sobre $X$ y como flechas todas las transformaciones naturales entre éstos. Dicha categoría también la representamos por $\PreSh (X)$ y la llamamos ``la categoría de prehaces sobre $X$". La subcategoría plena de $\PreSh (X)$ que tiene por objetos todos los haces sobre $X$ se denota $\normalfont{\text{Sh}}(X)$ y la llamamos ``la categoría de haces sobre $X$"; tendrá por tanto como flechas todas las transformaciones naturales entre haces sobre $X$. 
+\end{Def}
+La traducción al inglés de las palabras \textit{haz} y \textit{prehaz} es, respectivamente, \textit{sheaf} (en plural \textit{sheaves}) y \textit{presheaf} (en plural \textit{presheaves}); de acá que se adopte la notación $\Sh (X)$ y $\PreSh (X)$.

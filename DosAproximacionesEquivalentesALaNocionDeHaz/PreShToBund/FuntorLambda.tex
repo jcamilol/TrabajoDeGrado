@@ -1,0 +1,120 @@
+Como hemos resaltado, obtenemos el manojo $\Lambda_P$ sobre $X$, por cada prehaz $P$ sobre $X$. Nuestro deseo es que esta asignación en objetos nos produzca un funtor $\Lambda:\PreSh(X)\to\Top/X$; surge la pregunta de qué flecha de $\Top/X$ asignar a una flecha $h:P\dot{\to} Q$ en $\PreSh(X)$.
+
+Sea $h:P\dot{\to}Q$ una transformación natural entre prehaces sobre $X$; queremos definir $\Lambda_h:\Lambda_{P}\to\Lambda_{Q}$, de modo que $\Lambda_h$ sea una función continua, y que $\mathfrak{q}\circ\Lambda_h=\mathfrak{p}$, es decir, que el siguiente diagrama en $\Top$ conmute:
+\input{Diagramas/Diag24.tex}
+Recordemos que 
+$$
+   \Lambda_P=\left\lbrace (\Pgerm_{x}s_{U},x)\mid x\in U\subseteqab X, s\in PU\right\rbrace
+$$
+y
+$$
+   \Lambda_Q=\left\lbrace (\Qgerm_{x}s_{U},x)\mid x\in U\subseteqab X, s\in QU\right\rbrace.
+$$
+Podría pensarse $\Lambda_h(\Pgerm_{x}s_{U},x)=(\Qgerm_{x}s_{U},x)$ (para cada $(\Pgerm_{x}s_{U},x)\in\Lambda_P$) como una asignación natural; sin embargo, el no uso de la transformación natural $h$ genera dudas. Otro camino que puede pensarse es el siguiente: dado $(\Pgerm_{x}s_{U},x)\in \Lambda_P$, como $U\in\mathcal{O}(X)$ y $h:\Lambda_P\dot{\to}\Lambda_Q$ es una transformación natural entre los funtores $\Lambda_P,\Lambda_Q:\mathcal{O}(X)^{\text{op}}\to\Set$, tenemos la función de conjuntos $h_{U}:PU\to QU$; como $s\in PU$ entonces $h_{U}s\in QU$, y $\Lambda_h(\Pgerm_{x}s_{U},x)=(\Qgerm_{x}(h_{U}s)_{U},x)$ (para cada $(\Pgerm_{x}s_{U},x)\in\Lambda_P$) nos sugiere otra definición de $\Lambda_h$. Como la anterior función trabaja con clases de equivalencia (los gérmenes sobre cada punto), debemos garantizar que está bien definida. 
+\begin{itemize}
+   \item Sean $x\in X; (U,s),(V,t)\in\PSu(X)$. Supongamos $\Pgerm_{x}s_{U}=\Pgerm_{x}t_{V}$ y garanticemos $\Qgerm_{x}(h_{U}s)_{U}=\Qgerm_{x}(h_{V}t)_{V}$. Tenemos $(U,s)\sim_{P,x}(V,t)$, luego existe $W\subseteqab X$ tal que $W\subseteq U$ y $W\subseteq V$, con $x\in W$, y además $s|^{U}_{W}=t|^{V}_{W}$. Tenemos en $\mathcal{O}(X)$ el diagrama
+      \input{Diagramas/Diag25.tex}
+      Como $h:P\dot{\to} Q$ es una transformación natural, tenemos en $\Set$ el siguiente diagrama conmutativo:
+      \input{Diagramas/Diag26.tex}
+      Como $s\in PU, t\in PV$ y $s|^{U}_{W}=t|^{V}_{W}$, siguiendo en anterior diagrama vemos que:
+      $$
+         (h_{U}s)|^{U}_{W}=h_{W}(s|^{U}_{W})=h_{W}(t|^{V}_{W})=(h_{V}t)|^{V}_{W},
+      $$
+      de modo que $(U,h_{U}s)\sim_{Q,x}(V,h_{V}t)$ y $\Qgerm_{x}(h_{U}s)_{U}=\Qgerm_{x}(h_{V}t)_{V}$. Con esto, $\Lambda_h$ está bien definida, pues dados $(\Pgerm_{x}s_{U},x),(\Pgerm_{x}t_{V},x)\in\Lambda_P$, si $(\Pgerm_{x}s_{U},x)=(\Pgerm_{x}t_{V},x)$ entonces
+      $$
+      \begin{aligned}
+         \Lambda_h(\Pgerm_{x}s_{U},x)&=(\Qgerm_{x}(h_{U}s)_{U},x)\\
+                                     &=(\Qgerm_{x}(h_{V}t)_{V},x)\\
+                                     &=\Lambda_h(\Pgerm_{x}t_{V},x).
+      \end{aligned}
+      $$
+\end{itemize}
+Ahora veamos que $\Lambda_h$ es continua:
+\begin{itemize}
+   \item Probamos que $\Lambda_h$ es continua puntualmente. Sea $(\Pgerm_{x}s_{u},x)\in \Lambda_P$ (tenemos $x\in U\subseteqab X, s\in PU$). Tenemos $\Lambda_h(\Pgerm_{x}s_{U},x)=(\Qgerm_{x}(h_{U}s),x)$. Sea $\dot{t}(V)\in\mathcal{B}_{\Lambda_Q}$ una vecindad abierta básica de $(\Qgerm_{x}(h_{U}s)_{U},x)$, es decir, $V\in\mathcal{O}(X)$, $t\in QV$ y $(\Qgerm_{x}(h_{U}s)_{U},x)\in\dot{t}_{V}(V)$, con lo cual existe $y\in V$ tal que:
+      $$
+      \begin{aligned}
+         (\Qgerm_{x}(h_{U}s)_{U},x)&=\dot{t}_{V}(y)\\
+                                   &=(\Qgerm_{y}t_{V},y).
+      \end{aligned}
+      $$
+      De este modo, $x=y$, $x\in V$ y $\Qgerm_{x}(h_{U}s)_{U}=\Qgerm_{x}t_{V}$, es decir, $(U,h_{U}s)\sim_{Q,x}(V,t)$; así, existe $W\in\mathcal{O}(X)$ tal que $x\in W\subseteq U\cap V$ y $(h_{U}s)|^{U}_{W}=t|^{V}_{W}$. Como $h:P\dot{\to} Q$ es una transformación natural y $W\subseteq U$, tenemos en $\Set$ el siguiente diagrama conmutativo:
+      \input{Diagramas/Diag27.tex}
+      Como $s\in PU$,
+      $$
+      \begin{aligned}
+         h_{W}(s|^{U}_{W})&=(h_{U}s)|^{U}_{W}=t|^{V}_{W}.
+      \end{aligned}
+      $$
+      Notemos que $x\in W$ y 
+      $$
+         \dot{(s|^{U}_{W})}_{W}(x)=(\Pgerm_{x}(s|^{U}_{W})_W,x)=(\Pgerm_{x}s_{U},x),
+      $$
+      y por tanto $(\Pgerm_{x}s_{U},x)\in\dot{(s|^{U}_{W})}(W)$. Además $\Lambda_h(\Pgerm_{x}s_{U},x)=(\Qgerm_{x}(h_{U}s)_{U},x)$, con lo cual $(\Qgerm_{x}(h_{U}s)_{U},x)\in \Lambda_h(\dot{(s|^{U}_{W}})(W))$. Ahora, sea $z\in \Lambda_h(\dot{(s|^{U}_{W})}(W))$. Existe $\tilde{w}\in\dot{(s|^{U}_{W})}(W)$ tal que $z=\Lambda_h(\tilde{w})$. Existe $w\in W\subseteq V$ tal que $\tilde{w}=\dot{(s|^{U}_{W})}(w)=(\Pgerm_{w}(s|^{U}_{W})_W,w)$. Por ende
+      $$
+      \begin{aligned}
+         z&=\Lambda_h(\tilde{w})\\
+          &=\Lambda_h(\Pgerm_{w}(s|^{U}_{W})_W,w)\\
+          &=(\Qgerm_{w}(h_{W}(s|^{U}_{W}))_{W},w)\\
+          &=(\Qgerm_{w}(t|^{V}_{W})_{W},w)\\
+          &=(\Qgerm_{w}t_{V},w)\\
+          &=\dot{t}_{V}(w)
+      \end{aligned}
+      $$
+      y $w\in V$, con lo cual $z\in\dot{t}_{V}(V)$ y $\Lambda_h(\dot{(s|^{U}_{W})}(W))\subseteq \dot{t}_{V}(V)$. Como $\dot{(s|^{U}_{W})}(W)\in\mathcal{B}_{\Lambda_P}$, esto completa la prueba de que $\Lambda_h:\Lambda_P\to \Lambda_Q$ es una función continua.
+   \item Sumado a lo anterior, el siguiente diagrama conmuta:
+      \input{Diagramas/Diag24.tex}
+      pues, dado $(\Pgerm_{x}s_{U},x)\in \Lambda_P$, tenemos
+      $$
+      \begin{aligned}
+         \mathfrak{q}(\Lambda_h(\Pgerm_{x}s_{U},x))&=\mathfrak{q}(\Qgerm_{x}(h_{U}s)_{U},x)\\
+                                                   &=x\\
+                                                   &=\mathfrak{p}(\Pgerm_{x}s_{U},x),
+      \end{aligned}
+      $$
+      luego $\mathfrak{p}=\mathfrak{q}\circ\Lambda_h$.
+\end{itemize}
+Hemos probado la siguiente proposición:
+\begin{Prop}
+   Para cada $h:P\dot{\to} Q$ en $\PreSh(X)$, la función 
+   $$
+      \Lambda_h:\Lambda_P\to \Lambda_Q:(\Pgerm_{x}s_{U},x)\mapsto (\Qgerm_{x}(h_{U}s)_{U},x)
+   $$
+   es una flecha de $(\Lambda_P,\mathfrak{p})\to(\Lambda_Q,\mathfrak{q})$ en $\Top/X$.
+\end{Prop}
+
+Con la siguiente proposición alcanzamos el objetivo de la presente sección:
+\begin{Prop}
+   La función $\Lambda$ que a cada $P\in \PreSh(X)$ le asigna el manojo $\Lambda_P\in\Top/X$, y a cada $h:P\dot{\to}Q$ en $\PreSh(X)$ le asigna la flecha $\Lambda_h:\Lambda_P\to \Lambda_Q$ en $\Top/X$, es un funtor covariante de $\PreSh(X)$ en $\Top/X$.   
+\end{Prop}
+\begin{proof}
+   \begin{itemize}
+      \item Veamos que $\Lambda$ respeta identidades. Dado $P\in\PreSh(X)$, para cada $(\Pgerm_{x}s_{U},x)\in\Lambda_P$ tenemos
+         $$
+         \begin{aligned}
+            \Lambda_{1_{P}}(\Pgerm_{x}s_{U})&=(\Pgerm_{x}({(1_{P})_{U}s})_{U},x)\\
+                                            &=(\Pgerm_{x}(1_{PU}s)_{U},x)\\
+                                            &=(\Pgerm_{x}s_{U},x)\\
+                                            &=1_{\Lambda_P}(\Pgerm_{x}s_{U},x),
+         \end{aligned}
+         $$
+         y por tanto $\Lambda_{1_{P}}=1_{\Lambda_P}$.
+      \item Veamos que $\Lambda$ respeta composiciones. Supongamos que tenemos flechas y objetos de $\PreSh(X)$ en la disposición
+         \input{Diagramas/Diag28.tex}
+         y probemos que el siguiente diagrama en $\Top/X$ conmuta:
+         \input{Diagramas/Diag29.tex}
+         Dado $(\Pgerm_{x}s_{U},x)\in\Lambda_P$, tenemos
+         $$
+         \begin{aligned}
+            (\Lambda_{k}\circ \Lambda_{h})(\Pgerm_{x}s_{U},x)&=\Lambda_{k}(\Lambda_{h}(\Pgerm_{x}s_{U},x))\\
+                                                             &=\Lambda_{k}(\Qgerm_{x}(h_{U}s)_{U},x)\\
+                                                             &=(\Rgerm_{x}(k_{U}(h_{U}s))_{U},x)\\
+                                                             &=(\Rgerm_{x}((k_{U}\circ h_{U})(s))_{U},x)\\
+                                                             &=(\Rgerm_{x}((k\bullet h)_{U}(s))_{U},x)\\
+                                                             &=\Lambda_{k\bullet h}(\Pgerm_{x}s_{U},x),
+         \end{aligned}
+         $$
+         y con esto $\Lambda_{k}\circ\Lambda_{h}=\Lambda_{k\bullet h}$.
+   \end{itemize}
+   Concluimos que $\Lambda:\PreSh(X)\to\Top/X$ es un funtor.
+\end{proof}

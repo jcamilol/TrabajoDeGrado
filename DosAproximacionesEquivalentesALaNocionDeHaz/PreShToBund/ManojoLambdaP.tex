@@ -1,0 +1,156 @@
+Nos interesa forzar a los tallos de un prehaz a que tengan intersección vacía; para esto tomamos su unión disyunta (que resulta ser el coproducto de los tallos en la categoría $\Set$):
+\begin{Def}
+   Sea $P\in\PreSh(X)$. Denotamos por $\Lambda_P$ a la unión disyunta de los tallos de $P$ en los elementos de $X$:
+   $$
+   \begin{aligned}
+      \Lambda_P&:=\coprod_{x\in X}P_{x}\\
+               &=\bigcup_{x\in X}(P_{x}\times\left\lbrace x\right\rbrace)\\
+               &=\left\lbrace (\Pgerm_{x}s_{U},x)\mid x\in X;(U,s)\in\PSu(x)\right\rbrace.
+   \end{aligned}
+   $$
+\end{Def}
+Queremos obtener por cada prehaz sobre $X$ un manojo sobre $X$; el conjunto $\Lambda_P$ es el primer paso para esto; ahora definimos una función de dicho conjunto en $X$:
+\begin{Def}
+   Sea $P\in\PreSh(X)$. Definimos la función $\mathfrak{p}:\Lambda_P\to X$ mediante $\mathfrak{p}(\Pgerm_{x}s_{U},x)=x$ para cada $(\Pgerm_{x}s_{U},x)\in\Lambda_P$, y la llamamos la función canónica de $\Lambda_P$ en $X$. 
+\end{Def}
+Para que $\mathfrak{p}$ represente un manojo sobre $X$, debemos dotar a $\Lambda_P$ de una topología; con este fin introducimos una nueva familia de funciones:
+\begin{Def}
+   Para cualesquiera $U\in\mathcal{O}(X)$ y $s\in PU$, definimos la función $\dot{s}:U\to\Lambda_P$ mediante $\dot{s}(x)=(\Pgerm_{x}s_{U},x)$ para cada $x\in U$.
+\end{Def}
+Para cada función $\dot{s}$, el siguiente diagrama en $\Set$ es conmutativo:
+   \input{Diagramas/Diag22.tex}
+Este diagrama nos recuerda las secciones transversales sobre un manojo. Deseamos que la topología que asignemos a $\Lambda_P$ haga de cada función $\dot{s}$ una sección transversal sobre $\mathfrak{p}$.
+\begin{Prop}
+   Sea $P\in\PreSh(X)$. El conjunto
+   $$
+      \mathcal{B}_{\Lambda_P}:=\left\lbrace \dot{s}(U)\mid U\in\mathcal{O}(X);s\in PU\right\rbrace
+   $$
+   es base para una topología sobre $\Lambda_P$.
+\end{Prop}
+\begin{proof}
+   Hacemos uso de la caracterización dada en la Proposición \Ref{Prop:ConjuntoEsBase}.
+   \begin{itemize}
+      \item Veamos que $\bigcup \mathcal{B}_{\Lambda_P}=\Lambda_P$, es decir,
+      $$
+         \bigcup_{\substack{U\in\mathcal{O}(X) \\ s\in PU}}\dot{s}(U)=\Lambda_P.
+      $$
+      La contenencia $\subseteq$ es inmediata, pues $\dot{s}(U)\subseteq\Lambda_P$ para cada $U\in\mathcal{O}(X)$ y $s\in PU$. Ahora, sea $z\in\Lambda_{P}$. Existen $y\in X$ y $(V,t)\in\Su(y)$ tales que $z=(\germ_{y}t_{V},y)$. Tenemos $y\in V\in\mathcal{O}(X)$ y $t\in PV$; como $\dot{t}_{V}(y)=(\germ_{y}t_{V},y)=z$, tenemos $z\in\dot{t}(V)\subseteq\bigcup{\dot{s}(U)}$; esto nos da la contenencia $\supseteq$. Obtenemos que $\Lambda_P$ es unión de elementos de $\mathcal{B}_{\Lambda_P}$.
+   \item Ahora, sean $A,B\in\mathcal{B}_{\Lambda_P}$ y probemos que $A\cap B$ es unión de elementos de $\mathcal{B}_{\Lambda_P}$. Existen $T,V\in\mathcal{O}(X), t\in PT$ y $r\in PV$ tales que $A=\dot{t}(T)$ y $B=\dot{r}(V)$. Si $A\cap B=\phi$, entonces $A\cap B$ es la unión vacía de elementos de $\mathcal{B}_{\Lambda_P}$. Supongamos que $A\cap B\neq\phi$. Dado
+      $$ 
+         z\in A\cap B =\dot{t}(T)\cap\dot{r}(V)=\left\lbrace (\germ_{x}t_{T},x)\mid x\in T\right\rbrace\cap\left\lbrace (\germ_{x}r_{V},x)\mid x\in V\right\rbrace,
+      $$
+      existe $x\in T\cap V\in \mathcal{O}(X)$ tal que $z=(germ_{x}t_{T},x)=(germ_{x}r_{V},x)$; luego $germ_{x}t_{T}=germ_{x}r_{V}$ y $(T,t)\sim_{x}(V,r)$. Así, existe $W_{z}\in\mathcal{O}(X)$ tal que $x\in W_z\subseteq T\cap V$ y $t|^{T}_{W_z}=r|^{V}_{W_z}\in PW_{z}$. Probemos que
+      $$
+         A\cap B=\bigcup_{z\in A\cap B}\dot{(t|^{T}_{W_z})}(W_z).
+      $$
+      \begin{itemize}
+         \item[($\subseteq$)] Sea $\omega\in A\cap B$. Existe $x\in W_{\omega}$ tal que $\omega=(\germ_{x}t_{T},x)$. Como, por el Lema \Ref{Lema:LemaAzul} se tiene $\germ_{x}t_{T}=\germ_{x}(t|^{T}_{W_{\omega}})_{W_{\omega}}$, entonces
+            $$
+            \begin{aligned}
+               \omega&=(\germ_{x}t_{T},x)\\
+                     &=(\germ_{x}(t|^{T}_{W_{\omega}})_{W_{\omega}},x)\\
+                     &=\dot{(t|^{T}_{W_{\omega}})}_{W_{\omega}}(x)
+            \end{aligned}
+            $$
+            con $x\in W_{\omega}$; así, 
+            $$
+               \omega\in\dot{(t|^{T}_{W_\omega})}(W_\omega)
+            $$
+            con $\omega\in A\cap B$, luego
+            $$
+               \omega\in\bigcup_{z\in A\cap B}\dot{(t|^{T}_{W_z})}(W_z),
+            $$
+            y con esto,
+            $$
+            A\cap B\subseteq\bigcup_{z\in A\cap B}\dot{(t|^{T}_{W_z})}(W_z).
+            $$
+         \item[($\supseteq$)] Sea $y\in \bigcup_{z\in A\cap B}\dot{(t|^{T}_{W_z})}(W_z)$. Existe $\omega\in A\cap B$ tal que $y\in\dot{(t|^{T}_{W_\omega})}(W_\omega)$, de modo que existe $x\in W_{\omega}$ tal que $y=\dot{(t|^{T}_{W_\omega})}(x)=(\germ_{x}(t|^{T}_{W_\omega})_{W_\omega},x)$ con $W_\omega\subseteq T\cap V$ y $t|^{T}_{W_\omega}=r|^{V}_{W_\omega}$, con lo cual $(T,t)\sim_{x}(V,r)$ y $\germ_{x}t_{T}=\germ_{x}r_{V}$. Como $\germ_{x}t_{T}=germ_{x}(t|^{T}_{W_\omega})_{W_\omega}$, tenemos
+            $$
+            \begin{aligned}
+               y&=(\germ_{x}(t|^{T}_{W_\omega})_{W_\omega},x)\\
+                &=(\germ_{x}t_{T},x)\\
+                &=(\germ_{x}r_{V},x),
+            \end{aligned}
+            $$
+            es decir $y=\dot{t}(x)=\dot{r}(x)$ con $x\in W_{\omega}\subseteq T\cap V$, de modo que $y\in\dot{t}(T)\cap\dot{r}(V)=A\cap B$. Obtenemos $\bigcup_{z\in A\cap B}\dot{(t|^{T}_{W_z})}(W_z)\subseteq A\cap B$.
+      \end{itemize}
+      Así, $A\cap B=\bigcup_{z\in A\cap B}\dot{(t|^{T}_{W_z})}(W_z)$, y para cada $z\in A\cap B$, $\dot{(t|^{T}_{W_z})}(W_z)\in\mathcal{B}_{\Lambda_P}$; es decir, la intersección de dos elementos de $\Lambda_P$ es unión de elementos de $\mathcal{B}_{\Lambda_P}$. Concluimos que $\mathcal{B}_{\Lambda_P}$ es base para una topología sobre $\Lambda_P$.
+   \end{itemize}
+\end{proof}
+Teniendo en cuenta la anterior proposición, a partir de ahora consideramos, para cada prehaz $P$ sobre $X$, a $\Lambda_P$ como espacio topológico, con la topología generada por $\mathcal{B}_{\Lambda_{P}}$ (es decir, aquella que tiene por conjuntos abiertos todas las uniones arbitrarias de elementos de $\mathcal{B}_{\Lambda_P}$). Igualmente, cada $U\in\mathcal{O}(X)$ se considera con la topología de subespacio heredada de $X$.
+
+Las siguientes proposiciones nos muestran, respectivamente, que hemos logrado obtener, con $(\Lambda_{P},\mathfrak{p})$, un manojo sobre $X$ para cada $P\in\PreSh(X)$, y que hemos cumplido nuestro propósito de que cada función del tipo $\dot{s}$ sea una sección transversal sobre $\mathfrak{p}$.
+\begin{Prop}
+   Sea $P\in\PreSh(X)$. La función $\mathfrak{p}:\Lambda_P\to X$ es continua. 
+\end{Prop}
+\begin{proof}
+   Probemos que $\mathfrak{p}$ devuelve abiertos de $X$ en abiertos de $\Lambda_P$ por la imagen inversa. Sean $U\subseteqab X$ y $z\in\mathfrak{p}^{-1}(U)\subseteq \Lambda_P$. Por la definición de $\Lambda_P$, existen $x\in X$ y $(V,t)\in\Su(x)$ (i.e. $x\in V\subseteqab X$ y $t\in PV$), tales que $z=(\germ_{x}t_{V},x)$; así, $x=\mathfrak{p}(z)\in U$ y $x\in U\cap V$.
+   \begin{itemize}
+      \item Probemos $z\in\dot{(t|^{V}_{U\cap V})}(U\cap V)\subseteq\mathfrak{p}^{-1}(U)$. Como $x\in U\cap V$ y
+         $$
+         \begin{aligned}
+            \dot{(t|^{V}_{U\cap V})}(x)&=(\germ_{x}(t|^{V}_{U\cap V})_{U\cap V},x)\\
+                                       &=(\germ_{x}t_{V},x)\\
+                                       &=z,
+         \end{aligned}
+         $$
+         luego $z\in\dot{(t|^{V}_{U\cap V})}(U\cap V)$. Ahora, sea $w\in\dot{(t|^{V}_{U\cap V})}(U\cap V)$. Existe $y\in U\cap V$ tal que $w=\dot{(t|^{V}_{U\cap V})}(y)=(\germ_{y}(t|^{V}_{U\cap V})_{U\cap V},y)=(\germ_{y}t_{V},y)$, luego $\mathfrak{p}(w)=\mathfrak{p}(\germ_{y}t_{V},y)=y$, con $y\in U$, de modo que $w\in\mathfrak{p}^{-1}(U)$. Así, $\dot{(t|^{V}_{U\cap V})}(U\cap V)\subseteq \mathfrak{p}^{-1}(U)$.
+   \end{itemize}
+   Notemos que $\dot{(t|^{V}_{U\cap V})}(U\cap V)\in\mathcal{B}_{\Lambda_P}$, luego $\dot{(t|^{V}_{U\cap V})}(U\cap V)\subseteqab \Lambda_P$. Como $z\in\dot{(t|^{V}_{U\cap V})}(U\cap V)\subseteq \mathfrak{p}^{-1}(U)$, hemos probado que $\mathfrak{p}^{-1}(U)\subseteqab \Lambda_P$. Concluimos que $\mathfrak{p}:\Lambda_P\to X$ es una función continua. 
+\end{proof}
+\begin{Prop}
+   Sea $P\in \PreSh(X)$. Para cada $U\in\mathcal{O}(X)$ y cada $s\in PU$ se tiene que la función $\dot{s}:U\to \Lambda_P$ es continua. Además $\mathfrak{p}\circ\dot{s}=\iota_{U,X}$.
+\end{Prop}
+\begin{proof}
+   Sean $U\in\mathcal{O}(X)$ y $s\in PU$ cualesquiera. Veamos que $\dot{s}:U\to\Lambda_P$ devuelve abiertos de $\Lambda_P$ en abiertos de $U$ por la imagen recíproca. Sea $\omega\subseteqab \Lambda_P$. Existen $\left\lbrace V_i\right\rbrace_{i\in I}$ familia de abiertos de $X$ y $\left\lbrace t_i\right\rbrace_{i\in I}$ con $t_i\in PV_i$ para cada $i\in I$, tales que $\omega=\bigcup_{i\in I}\dot{t_i}(V_i)$. Ahora, sea $x\in\dot{s}^{-1}(\omega)$, y probemos que $x$ tiene una vecindad abierta (en $U$) contenida en $\dot{s}^{-1}(\omega)$. Tenemos $\dot{s}(x)\in\omega=\bigcup_{i\in I}\dot{(t_i)}(V_i)$, de modo que existe $j\in J$ tal que $\dot{s}(x)\in\dot{(t_{j})}(V_j)$, luego, existe $y\in V_j$ tal que $\dot{s}(x)=\dot{(t_j)}(y)$, es decir, $(\germ_{x}s_U,x)=(\germ_{y}(t_j)_{V_j},y)$; así $x=y$, y, $x\in U\cap V$ y $\germ_{x}s_{U}=\germ_{x}(t_j)_{V_j}$, luego $(U,s)\sim_{x}(V_j,t_j)$, es decir, existe $W\in\mathcal{O}(X)$ con $x\in W\subseteq U\cap V_j$ tal que $s|^{U}_{W}=t|^{V_j}_{W}$. Tomemos $a\in W$. Inmediatamente tenemos $(U,s)\sim_{a}(V_j,t_j)$, es decir, $\germ_{a}s_{U}=\germ_{a}(t_j)_{V_j}$ y $\dot{s}(a)=\dot{(t_j)}(a)$ con $a\in V_j$, luego $\dot{s}(a)\in\dot{(t_j)}(V_j)$ con $j\in I$, así que $\dot{s}(a)\in\bigcup_{i\in I}\dot{(t_i)}(V_i)=\omega$, y $a\in\dot{s}^{-1}(\omega)$. Así $W\subseteq\dot{s}^{-1}(\omega)$, con $W\subseteqab X$ y $W\subseteq U$, es decir, $W\subseteqab U$, y $x\in W$. Esto prueba que $\dot{s}^{-1}(\omega)\subseteqab U$, y por tanto, que $\dot{s}:U\to\Lambda_P$ es continua. Además, dado $u\in U$ se tiene
+   $$
+      (\mathfrak{p}\circ\dot{s})(u)=\mathfrak{p}(\dot{s}(u))=\mathfrak{p}(\germ_{u}s_{U},u)=u=\iota_{U,X}(u).
+   $$
+   Por tanto $\mathfrak{p}\circ \dot{s}=\iota_{U,X}$.
+\end{proof}
+\begin{Def}[Manojo de gérmenes]
+   Dado $P\in \PreSh(X)$, llamamos a $(\Lambda_P,\mathfrak{p})$ el manojo de gérmenes de $P$ sobre $X$.
+\end{Def}
+Ahora probamos que $\mathfrak{p}$, aun más que una función continua, es un homeomorfismo local sobre $X$, y que por tanto $\Lambda_P$ es un espacio étalé sobre $X$:
+\begin{Lema}
+   Sean $P\in\PreSh(X)$, $U\in \mathcal{O}(X)$ y $s\in PU$. La función $\dot{s}:U\to \dot{s}(U)\subseteq\Lambda_P$ es abierta, inyectiva y tiene a $\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}$ como inversa bilátera. 
+\end{Lema}
+\begin{proof}
+   \begin{itemize}
+      \item La propiedad de ser abierta de $\dot{s}$ se sigue directamente de la definición de la topología de $\Lambda_P$.
+      \item Dados $x,y\in U$, si $\dot{s}(x)=\dot{s}(y)$ entonces $(\germ_{x}s_{U},x)=(\germ_{y}s_{U},y)$ y $x=y$. Por tanto $\dot{s}$ es inyectiva.
+      \item Dado $y\in \dot{s}(U)$, se tiene $y=\dot{s}(x)=(\germ_{x}s_{U},x)$ para algún $x\in U$. Entonces $\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}(y)=\mathfrak{p}(\germ_{x}s_{U},x)=x\in U$. Por tanto $\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}$ es función de $\dot{s}(U)$ en $U$.
+         \input{Diagramas/Diag23.tex}
+         Dado $x\in U$ se tiene
+         $$
+         \begin{aligned}
+            \mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}(\dot{s}(x))&=\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}(\germ_{x}s_{U},x)\\
+                                                              &=x\\
+                                                              &=1_{U}(x),
+         \end{aligned}
+         $$
+         así que $\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}\circ \dot{s}=1_{U}$. Dado $z\in\dot{s}(U)$, existe $w\in U$ tal que $z=\dot{s}(w)=(\germ_{w}s_{U},w)$; entonces
+         $$
+         \begin{aligned}
+            \dot{s}(\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}(z))&=\dot{s}(\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}(\germ_{w}s_{U},w))\\
+                                                              &=\dot{s}(w)\\
+                                                              &=w\\
+                                                              &=1_{\dot{s}(U)}(z),
+         \end{aligned}
+         $$
+         luego $\dot{s}\circ\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}=1_{\dot{s}(U)}$. Obtenemos que $\dot{s}:U\to\dot{s}(U)$ tiene a $\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}$ como inversa bilátera.
+   \end{itemize}
+\end{proof}
+\begin{Cor}
+   Sea $P\in\PreSh(X)$. El manojo $\mathfrak{p}:\Lambda_P\to X$ es un homeomorfismo local.
+\end{Cor}
+\begin{proof}
+   Sea $z\in\Lambda_P$. Existen $x\in X$ y $(U,s)\in\Su(x)$ $(U\in\mathcal{O}(X),$ $x\in U,$ $s\in PU)$ tales que $z=(\germ_{x}s_{U},x)$.
+   \begin{itemize}
+      \item Tenemos $\dot{s}(U)\subseteqab \Lambda_P$, y como $x\in U$ y $\dot{s}(x)=(\germ_{x}s_{U},x)=z$; entonces $z\in\dot{s}(U)$.
+      \item $\mathfrak{p}(\dot{s}(U))=\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}(\dot{s}(U))=U\subseteqab X$.
+      \item Como $\mathfrak{p}$ es continua, su restricción $\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}$ es continua, y ésta tiene por inversa a la función continua $\dot{s}$. Por tanto $\mathfrak{p}|^{\Lambda_P}_{\dot{s}(U)}:\dot{s}(U)\to U$ es un homeomorfismo.
+   \end{itemize}
+   Obtenemos que $\mathfrak{p}:\Lambda_P\to X$ es un homeomorfismo local.
+\end{proof}
+

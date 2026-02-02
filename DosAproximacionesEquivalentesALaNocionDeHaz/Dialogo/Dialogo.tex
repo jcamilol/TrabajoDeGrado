@@ -1,0 +1,35 @@
+En la presente sección, usamos la teoría de funtores adjuntos para probar que $\Lambda$ y $\Gamma$ determinan una adjunción, y también para, a partir de esto, derivar la equivalencia de las categorías $\Sh(X)$ y $\Etale(X)$ para cada espacio topológico $X$, lo cual constituye nuestro objetivo principal. Los resultados que usemos acerca de la teoría de funtores adjuntos se presentarán sin prueba (pues su estudio no constituye directamente un propósito del presente escrito; para referencia puede visitarse \cite[Chapter~4]{CWM}, por ejemplo), y éstos son esencialmente dos:
+\begin{Tma}\label{Tma:TmaAdjuntos1}
+   Sean $B$, $A$ categorías y $F:B\to A$, $G:A\to B$ funtores. Una adjunción entre $F$ y $G$ queda completamente determinada por transformaciones naturales $\eta:1_{B}\dot{\to}GF$ y $\epsilon:FG\dot{\to}1_{A}$, que satisfacen que las siguientes composiciones sean identidades
+   \input{Diagramas/Diag31.tex}
+   de $G$ y $F$, respectivamente, donde: 
+   \begin{itemize}
+      \item $\eta G:G\dot{\to}GFG$ es la transformación natural que a cada $a\in A$ le asigna la flecha $\eta_{G a}$ de $B$.
+      \item $G\epsilon :GFG\dot{\to}G$ es la transformación natural que a cada $a\in A$ le asigna la flecha $G\epsilon_{a}:GFGa\to Ga$ en $B$.
+      \item $F \eta: F\dot{\to}FGF$ es la transformación natural que a cada $b\in B$ le asigna la flecha $F\eta_{b}:Fb\to FGFb$ en $A$.
+      \item $\epsilon F:FGF\dot{\to}F$ es la transformación natural que a cada $b\in B$ le asigna la flecha $\epsilon_{Fb}:FGFb\to Fb$ en $A$. 
+   \end{itemize}
+   A $\eta$ y $\epsilon$ las llamamos respectivamente la unidad y counidad de la adjunción.
+\end{Tma}
+\begin{Lema}\label{Lema:LemaAdjuntos}
+   Sean $\mathcal{P}$, $\mathcal{B}$ categorías y $L:\mathcal{P}\to \mathcal{B}$, $G:\mathcal{B}\to \mathcal{P}$ funtores adjuntos con unidad $\eta$ y counidad $\epsilon$ que satisfacen las siguientes propiedades:
+   \begin{itemize}
+      \item[\textbf{\text{(L1)}}] Para todo $B\in \mathcal{B}$, $\eta_{GB}:GB\to GLGB$ es un isomorfismo
+      \item[\textbf{\text{(L2)}}] Para todo $P\in \mathcal{P}$, $\epsilon_{LP}:LGLP\to LP$ es un isomorfismo.
+   \end{itemize}
+   Sean $\mathcal{P}_{0}$ la subcategoría plena de $\mathcal{P}$ cuyos objetos son isomorfos a algún $GB$, y $\mathcal{B}_{0}$ la subcategoría plena de $\mathcal{B}$ cuyos objetos son isomorfos al algún $LP$. Entonces $L$ y $G$ se restringen a una equivalencia de dichas subcategorías, como en el siguiente diagrama:
+   \input{Diagramas/Diag30.tex}
+   donde las flechas verticales son las respectivas inclusiones.
+\end{Lema}
+Para poder aplicar estos teoremas a nuestros funtores de interés, comenzamos garantizando la existencia de $\eta$ y $\epsilon$ como en el Teorema \ref{Tma:TmaAdjuntos1} para $\Lambda:\PreSh(X)\to\Top/X$ y $\Gamma:\Top/X\to\PreSh(X)$.
+
+%\subsection{La transformación natural $\eta$}
+   \input{Dialogo/eta.tex}
+
+
+%\subsection{La transformación natural $\epsilon$}
+   \input{Dialogo/epsilon.tex}
+
+
+%\subsection{Diálogo entre $\eta$ y $\epsilon$}
+   \input{Dialogo/DialogoEtaEpsilon}

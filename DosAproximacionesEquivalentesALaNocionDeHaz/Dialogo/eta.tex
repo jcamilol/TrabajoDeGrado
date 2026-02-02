@@ -1,0 +1,16 @@
+Es la acción de ir a $\Top/X$ por $\Lambda$ y volver a $PreSh(X)$ mediante $\Gamma$ lo que genera la transformación natural $\eta$. Igualmente, $\eta$ surge con el llamado proceso de hacificación. Dado $P$ un prehaz sobre $X$, tenemos que $\Lambda_P$ es un manojo sobre $X$ y $\Gamma_{\Lambda_P}$ es un haz sobre $X$: el haz de secciones transversales del manojo $\Lambda_P$. Así, tenemos un funtor $\Gamma_\Lambda: \PreSh(X)\to\PreSh(X)$ que toma prehaces y cuyas imágenes son haces sobre $X$. Éste funtor es llamado \textit{funtor de hacificación}, y si $P$ es un prehaz sobre $X$, decimos que $\Gamma_{\Lambda_P}$ es la hacificación de $P$ y corresponde a la ``mejor aproximación" de $P$ a un haz. Esta ``mejor aproximación" también debería implicar que si $P$ es ya un haz, entonces el haz de secciones $\Gamma_{\Lambda_P}$ difiera lo menos posible de $P$. De eso trata el siguiente teorema, que además nos dice que todo haz es un haz de secciones transversales:
+\begin{Tma}[Teorema de hacificación]
+   Si $P$ es un haz sobre $X$ entonces en la categoría $Sh(X)$ se tiene un isomorfismo $P\cong \Gamma_{\Lambda_P}$.
+\end{Tma}
+\begin{proof}
+   Para probar este teorema se construye, para cada $P\in \PreSh(X)$ una transformación natural de prehaces $\eta_{P}:P\to\Gamma_{\Lambda_P}$, cuyas componentes sean biyecciones; esto basta, pues una transformación natural con componentes en $\Set$ biyectivas es un isomorfismo natural, y por tanto se obtiene $P\cong \Gamma_{\Lambda_P}$. La definición de $\eta_P$ se hace a partir de sus componentes: para cada $U\in \mathcal{O}(X)$, $\eta_{P} U:PU\to (\Gamma_{\Lambda_P})(U)$ le asigna a cada $s\in PU$ la sección transversal $\dot{s}$ de $U$ en $\Lambda_P$.
+   \input{Diagramas/Diag33.tex}
+   Esta asignación para $\eta_{P}U$ es inyectiva y sobreyectiva, y hace de $\eta_P$ un isomorfismo natural de $P$ en $\Gamma_{\Lambda_P}$.
+\end{proof}
+La asignación de $\eta_P$ para cada $P\in \PreSh (X)$ dada en la anterior prueba es lo que define, a partir de sus componentes, la transformación natural $\eta :1_{\PreSh(X)}\to \Gamma \Lambda$:
+\input{Diagramas/Diag32.tex}
+Como corolario del Teorema de hacificación obtenemos que $\Lambda$ y $\Gamma$ satisfacen la propiedad \textbf{(L1)} del Lema \ref{Lema:LemaAdjuntos}: dado $B\in \Top/X$ cualquiera, sabemos que $\Gamma B$ es un haz sobre $X$, luego 
+$$
+   \eta_{\Gamma B}:\Gamma B\dot{\to}\Gamma \Lambda \Gamma B
+$$
+es un isomorfismo. 

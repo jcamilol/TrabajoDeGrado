@@ -1,0 +1,19 @@
+\begin{Def}[Manojo]
+    Un manojo sobre un espacio topológico $X$ es una pareja $\left( Y, p\right)$ con $Y$ un espacio topológico y $p:Y\to X$ una función continua.
+\end{Def}
+Según el contexto, es frecuente referirnos al manojo $\left( Y,p\right)$ simplemente por $p$. La colección de todos los manojos sobre un espacio topológico tiene estructura de categoría:
+\begin{Def}[Categoría $\textbf{Top}/X$]
+   La categoría $\Top /X$ (léase ``categoría Top sobre X") o $\Bund (X)$ tiene por objetos todos los manojos sobre $X$. Dados $\left( Y,p\right),\left( Y',q\right)\in \Top/X$, $f$ es una flecha $\left( Y,p\right)\to\left( Y',q\right)$ en $\Top/X$ si $f:Y\to Y'$ es una función continua y $q\circ f=p$.
+   \input{Diagramas/Diag9.tex}
+\end{Def}
+La categoría $\Top /X$ es un ejemplo de ``categoría coma" (ver por ejemplo \cite[p.~45]{CWM} donde se denota por $(\Top \downarrow X)$). La notación $\Bund (X)$ es debida a \textit{bundle}, la traducción al inglés de la palabra \textit{manojo}. Un concepto esencial al trabajar con manojos es el de \textit{sección}:
+\begin{Def}[Secciones]
+   Sea $p:Y\to X$ un manojo sobre $X$.
+   \begin{itemize}
+      \item Una flecha $s:1_{X}\to p$ en $\Top/X$ es llamada una sección transversal de $p$. En este caso decimos que $s$ es una sección global de $p$.
+      \item Dado $U\subseteqab X$, una flecha $s:in_{U,X}\to p$ en $\Top/X$ es llamada una sección transversal de $p$ sobre $U$. En este caso decimos que $s$ es una sección local de $p$.
+   \end{itemize}
+\end{Def}
+De esta forma, una sección global (local) es una función continua que hace que el siguiente diagrama de la izquierda (derecha) conmute:
+\input{Diagramas/Diag10.tex}
+Vemos también que $s$ se presenta como una inversa (local), a derecha, de $p$.

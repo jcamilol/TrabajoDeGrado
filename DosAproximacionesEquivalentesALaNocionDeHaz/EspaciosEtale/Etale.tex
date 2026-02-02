@@ -1,0 +1,28 @@
+Para introducir los espacios étalé recordamos un concepto de topología:
+\begin{Def}[Homeomorfismo local]\label{Def:HomeomorfismoLocal}
+   Dados $X$ y $Y$ espacios topológicos, decimos que una función $p:Y\to X$ es un homeomorfismo local sobre $X$ si para todo $y\in Y$ existe $V_y\subseteqab Y$ con $y\in V_y$ tal que:
+   \begin{itemize}
+      \item[(i)] $p(V_y)$ es un subconjunto abierto de $X$.
+      \item[(ii)] $p|^{Y}_{V_y}:V_y\to p(V_y)$ es un homeomorfismo. 
+   \end{itemize}
+\end{Def}
+Una propiedad importante de los homeomorfismos locales (cuya prueba se presenta en la Sección \Ref{section:Apendice} (Apéndice)) es la siguiente:
+\begin{Prop}
+   Si $p:Y\to X$ es un homeomorfismo local, entonces $p$ es una función continua y abierta. Además, la colección de todos los conjuntos abiertos de $Y$ que satisfacen \textit{(i)} y \textit{(ii)} de la Definición \Ref{Def:HomeomorfismoLocal} forman una base para la topología de $Y$. 
+\end{Prop}
+Con esto, podemos introducir los espacios fibrados o étalé como un caso particular de manojo:
+\begin{Def}[Espacio étalé]
+   Un espacio fibrado o étalé sobre un espacio topológico $X$ es un manojo $\left( p, Y\right)$, donde $p: Y\to X$ es además un homeomorfismo local.
+\end{Def}
+Con lo anterior, podemos considerar la subcategoría plena de $\Top/X$ que tiene por objetos todos los espacios étalé sobre $X$, y que denotamos por $\Etale(X)$.
+
+Si $p:Y\to X$ es un homeomorfismo local, las inversas puntuales $p^{-1}\left\lbrace x\right\rbrace$ ($x\in X$) son llamadas las fibras de $p$ sobre $X$. De este modo, el espacio $Y$ se presenta como la unión disyunta de las fibras de $p$, justificando así el uso de las palabras \textit{fibrado} y \textit{étalé} en las definiciones dadas. Así mismo, hablamos de $Y$ como el espacio alto o desplegado, y nos referimos a $X$ como el espacio bajo o base. El espacio $Y$ se muestra, primero, como un despliegue vertical del espacio $X$, representado en las fibras de cada elemento en el espacio base, y segundo, como un despliegue horizontal de $X$, representado mediante el pegamiento de fibras que establecen los conjuntos abiertos de $Y$. Así mismo, la función $p$ se presenta como una proyección del espacio alto en el espacio bajo. Las secciones de un espacio étalé se comportan especialmente bien; muestra de ello lo da la siguiente proposición (para su prueba ver la Sección \Ref{section:Apendice}):
+\begin{Prop}
+   Sean $U\subseteqab X$ y $s$ una sección transversal, de un espacio étalé $\left( p, Y\right)$, sobre $U$. Entonces:
+   \begin{itemize}
+      \item $p|^{Y}_{s(U)}=s^{-1}$.
+      \item $s:U\to s(U)$ es un homeomorfismo.
+      \item $s(U)$ es un subconjunto abierto de $Y$.
+   \end{itemize}
+\end{Prop}
+Lo anterior nos permite por tanto caracterizar las secciones de $\left( p, Y\right)$ con los abiertos básicos de $Y$. Ésto a su vez nos muestra que el pegamiento horizontal de fibras que se da en $Y$ mediante conjuntos abiertos es bien portado en términos de continuidad. Un problema crucial en la teoría es el de la posibilidad de pegar secciones locales para construir secciones mayores y eventualmente globales \cite{MHPM}, lo cual captura las problemáticas de lo local versus lo global que motivaron nuestra definición de haz. Estos paralelismos manifiestos entre haces y espacios étalé permiten que la equivalencia entre las categorías $\Sh (X)$ y $\Etale (X)$, cuya prueba constituye nuestro objetivo en lo que sigue, no nos parezca en absoluto ajena.

@@ -1,0 +1,18 @@
+\begin{Tma}[Lema de pegado]\label{Tma:lemaPegado}
+   Sean $X$ y $Y$ espacios topológicos. Sean $U\stackrel{ab}\subseteq X$, $\{U_i\}_{i\in I}$ un cubrimiento abierto de $U$ y $\{f_i\}_{i\in I}$ una familia de funciones, de modo que para cada $i\in I$, $f_i:U_i\to Y$ es una función continua. Además suponemos la siguiente ``condición de pegado": para cualesquiera $i,j\in I$ se tiene $f_i(x)=f_j(x)$ para todo $x\in U_i \cap U_j$. Entonces, $f:=\bigcup_{i\in I}f_i$ es una función continua de $U$ en $Y$.
+\end{Tma}
+\begin{proof}
+   \begin{itemize}
+      \item Veamos que $f$ es en efecto una función de $U$ en $Y$. Sea $x\in U=\bigcup_{i\in I} U_i$. Existe $j\in I$ tal que $x\in U_j$, luego $\left( x,f_j(x)\right)\in f_j \subseteq \bigcup_{i\in I} f_i =f$. Como $f_j(x)\in Y$, obtenemos que $f$ relaciona a $x$ con un elemento de $Y$. Supongamos que para $y,y'\in Y$ se tiene $\left( x,y\right), \left( x,y'\right)\in f=\bigcup_{i\in I}f_i$. Existen $j,k\in I$ tales que $\left( x,y\right)\in f_j$ y $\left( x,y'\right)\in f_k$, es decir $x\in I_j$ y $y=f_j(x)$, y, $x\in U_k$ y $y'\in f_k(x)$; entonces $x\in U_j\cap U_k$ y por la condición de pegado se tiene $y=f_j(x)=f_k(x)=y'$, con lo cual $\left( x,y\right)=\left( x,y'\right)$. Lo anterior nos muestra que $f$ relaciona cada elemento de $U$ con un único elemento de $Y$, es decir, $f$ es una función de $U$ en Y.
+      \item Probemos que $f:U\to Y$ es continua mostrando que devuelve abiertos de $Y$ en abiertos de $U$ por la imagen recíproca . Sea $V\stackrel{ab}\subseteq Y$. Notemos que $f^{-1}(V)=\bigcup_{i\in I} f_i^{-1}(V)$:
+         \begin{itemize}
+            \item[$\subseteq$:] Sea $x\in f^{-1}(V)\subseteq U$, es decir, $f(x)\in V$. Existe $j\in I$ tal que $x\in U_j$, luego $f_j(x)=f(x)\in V$, y $x\in f_j^{-1}(V)\subseteq\bigcup_{i\in I}f_i^{-1}(V)$. 
+            \item[$\supseteq$:] Sea $x\in\bigcup_{i\in I} f_i^{-1}(V)$, es decir $x\in f_j^{-1}(V)$ para algún $j\in I$. Entonces $f(x)=f_j(x)\in V$ y $x\in f^{-1}(V)$.
+         \end{itemize}
+         Ahora bien, para cada $i\in I$ tenemos $f_i^{-1}(U)\stackrel{ab}\subseteq U_i$, luego $f_i^{-1}(V)=W_i\cap U_i$ con $W_i\stackrel{ab}\subseteq U$. Como $U_i \stackrel{ab}\subseteq U$ entonces $f_i^{-1}(V) \stackrel{ab}\subseteq U$, de modo que
+         $$
+         f^{-1}(V)=\bigcup_{i\in I}f_i^{-1}(V) \stackrel{ab}\subseteq U. 
+         $$
+         Con esto, concluimos que $f=\bigcup_{i\in I}f_i:U\to  Y$ es continua.
+   \end{itemize}
+\end{proof}

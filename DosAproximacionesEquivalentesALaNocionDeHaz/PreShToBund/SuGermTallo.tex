@@ -1,0 +1,81 @@
+Iniciamos definiendo el ``suelo" de un elemento de $X$ respecto a un prehaz sobre $X$:
+\begin{Def}[$P$-suelo de $x$]
+   Dados $x\in X$ y $P\in \PreSh(X)$, definimos el ``P-suelo de $x$" (denotado como $\PSu (x)$) como el conjunto $\left\lbrace (U,s)\mid x\in U\in \mathcal{O}(X); s\in PU\right\rbrace$
+\end{Def}
+ Buscamos definir una relación de equivalencia sobre el suelo de cada elemento de $X$:
+\begin{Def}
+   Sean $P\in \PreSh(X)$ y $x\in X$. Definimos en $\PSu(x)$ la relación $\sim_{P,x}$ de la siguiente manera:
+   \begin{center}
+      Dados $(U,s),(V,t)\in \PSu(x)$, $(U,s)\sim_{P,x}(V,t)$, si y sólo si, existe $W\in\mathcal{O}(X)$ tal que $x\in W\subseteq U\cap V$ y $s|^{U}_{W}=t|^{V}_{W}$.
+   \end{center}
+   Si $(U,s)\sim_{P,x}(V,t)$, decimos que $(U,s)$ y $(V,t)$ tienen el mismo P-germen en $x$. 
+\end{Def}
+La igualdad $s|^{U}_{W}=t|^{V}_{W}$ con $W\subseteq U\cap V$ nos recuerda la idea de ``coincidir localmente" que se mostró en las motivaciones dadas en la primera sección.
+
+Notemos que la condición $W\subseteq U\cap V$ se tiene si y sólo si $W\subseteq U$ y $W\subseteq V$, y que en este caso $s|^{U}_{W}$ y $t|^{V}_{W}$ son elementos de $P(W)$, siempre que $s\in PU$ y $t\in PV$. De esta forma, podemos representar $(U,s)\sim_{P,x}(V,t)$ con el cumplimiento simultaneo de los dos siguientes diagramas:
+\input{Diagramas/Diag18.tex}
+Donde el diagrama de la izquierda está en $\mathcal{O}(X)$, el de la derecha en $\Set$ y las flechas azules denotan pertenencia conjuntista.
+
+En las dos anteriores definiciones, si es claro el prehaz $P$ con el que se está trabajando, solemos denotar $\Su(x)$ y $\sim_{x}$ en lugar de \PSu(x) y $\sim_{P,x}$, respectivamente.
+\begin{Prop}
+   Para cualesquiera $P\in\PreSh(X)$ y $x\in X$, la relación $\sim_{x}$ es de equivalencia sobre $\Su(x)$.
+\end{Prop}
+\begin{proof}
+   La reflexividad y simetría de $\sim_{x}$ se siguen directamente de la definición. Veamos que $\sim_{x}$ es transitiva. Sean $(T,r),(U,s),(V,t)\in\Su(x)$ tales que $(T,r)\sim_{x}(U,s)$ y $(U,s)\sim_{x}(V,t)$. Existen $W_1,W_2\in\mathcal{O}(X)$ tales que $x\in W_1\subseteq T\cap U$ y $x\in W_2\subseteq U\cap V$. Además $r|^{T}_{W_1}=s|^{U}_{W_1}$ y $s|^{U}_{W_1}=t|^{V}_{W_2}$. Tenemos $W_1\cap W_2\in\mathcal{O}(X)$ y $x\in W_1\cap W_2\subseteq T\cap V$; se forma en $\mathcal{O}(X)$ el siguiente diagrama conmutativo:
+   
+   \input{Diagramas/Diag19.tex}
+   Como $P$ es un funtor contravariante de $\mathcal{O}(X)$ en $\Set$, obtenemos en $\Set$ el siguiente diagrama conmutativo:
+   \input{Diagramas/Diag20.tex}
+   Siguiéndolo tenemos que
+   $$
+   \begin{aligned}
+      r|^{T}_{W_1\cap W_2}&=(r|^{T}_{W_1})|^{W_1}_{W_1\cap W_2}\\
+                          &=(s|^{U}_{W_1})|^{W_1}_{W_1\cap W_2}\\
+                          &=s|^{U}_{W_1\cap W_2}\\
+                          &=(s|^{U}_{W_2})|^{W_2}_{W_1\cap W_2}\\
+                          &=(t|^{V}_{W_2})|^{W_2}_{W_1\cap W_2}\\
+                          &=t|^{V}_{W_1\cap W_2}.\\
+   \end{aligned}
+   $$
+   Por tanto, $(T,r)\sim_{x} (V,t)$ y $\sim_{x}$ es transitiva. Obtenemos que $\sim_{x}$ es una relación de equivalencia en $\Su(x)$.
+\end{proof}
+Ahora consideramos las clases de equivalencia generadas por la relación $\sim_{P,x}$:
+\begin{Def}[Germen en un punto]
+   Sean $P\in \PreSh(X)$ y $x\in X$. Para cada $(U,s)\in \PSu(x)$, la clase de equivalencia de $(U,s)$ respecto a $\sim_{P,x}$ se denota por $\Pgerm_{x}s_{U}$, y la llamamos el germen de $(U,s)$ en $x$.
+\end{Def}
+Nuevamente, si por el contexto es claro con qué prehaz estamos trabajando, puede omitirse el ``$P-$" en la anterior definición. Si $(U,s), (V,t)\in \PSu(x)$ y $(U,s)\sim_{P,x} (V,t)$, decimos que $(U,s)$ y $(V,t)$ tienen el mismo $P$-germen en $x$. 
+
+El siguiente lema, que será utilizado más adelante, nos muestra que el germen de un elemento se conserva bajo restricciones; propiedad que en efecto concuerda con la intuición desarrollada hasta el momento.
+\begin{Lema}\label{Lema:LemaAzul}
+   Sean $P\in\PreSh(X)$ y $U,V\in\mathcal{O}(X)$ con $V\subseteq U$ y $s\in PU$. Si $x\in V$ entonces $\germ_{x}s_{U}=\germ_{x}(s|^{U}_{V})_{V}$.
+\end{Lema}
+\begin{proof}
+   Supongamos que $x\in V$; en particular $x\in V\subseteq U\cap V$. Tenemos los diagramas (izquierda en $\mathcal{O}(X)$ y derecha en $\Set$):
+   \input{Diagramas/Diag21.tex}
+   Como $V\subseteq V$ es la flecha identidad de $V$, y $P$ es en particular un funtor, entonces $P(V\subseteq V)$ es la flecha identidad de $PV$; como $s\in PU$ entonces $P(U\subseteq V)(s)=s|^{U}_{V}\in PV$, luego 
+   $$
+   s|^{U}_{V}=P(V\subseteq V)(s|^{U}_{V})=(s|^{U}_{V})|^{V}_{V}.
+   $$
+   Luego $(U,s)\sim_{x}(V,s|^{U}_{V})$, de modo que las respectivas clases de equivalencia son iguales, es decir, $\germ_{x}s_{U}=\germ_{x}(s|^{U}_{V})_{V}$.
+\end{proof}
+Al pasar al cociente por la relación de equivalencia de ``tener el mismo germen", obtenemos el tallo (stalk en inglés) de un prehaz en un punto dado:
+\begin{Def}[Tallo en un punto]
+   Sean $P\in\PreSh(X)$ y $x\in X$. Al conjunto cociente
+   $$
+   P_{x}:=\PSu(x)/\sim_{P,x}=\left\lbrace \Pgerm_{x}s_{U}\mid (U,s)\in\PSu(x)\right\rbrace
+   $$
+   lo llamamos el tallo de $P$ en $x$.
+\end{Def}
+Los tallos de un prehaz no son necesariamente disyuntos; ello lo muestra el siguiente ejemplo:
+\begin{Ejm}
+   Tomemos $X=\left\lbrace a,b\right\rbrace$ (con $a\neq b$) dotado con la topología trivial $\tau=\left\lbrace \phi,X\right\rbrace$, $C$ el haz de funciones continuas sobre $\mathbb{R}$ y $f:X\to \mathbb{R}$ la función constante en $0$ ($f(a)=f(b)=0$). Las únicas funciones continuas de $X$ en $\mathbb{R}$ son las constantes, es decir $CX=\left\lbrace g:X\to\mathbb{R}\mid g(a)=f(a)\right\rbrace$. Notemos que
+   $$
+   \begin{aligned}
+      \Su(a)&=\left\lbrace (U,g)\mid a\in U\subseteqab X;g\in CU\right\rbrace\\
+            &=\left\lbrace (X,g)\mid g:X\to\mathbb{R} \text{ es continua}\right\rbrace\\
+            &=\left\lbrace (X,g)\mid g(a)=g(b)\right\rbrace;\\
+   \end{aligned}
+   $$
+   del mismo modo se llega a $\Su(b)=\left\lbrace (X,g)\mid g(a)=g(b)\right\rbrace$, y por tanto $\Su(a)=\Su(b)$. Sea $(X,g)\in\germ_{a}f_{X}$. Entonces $(X,g)\in\Su(a)=\Su(b)$ y $(X,g)\sim_{a}(X,f)$ y por tanto existe $W\subseteqab X$ tal que $a\in W\subseteqab X$ y $g|^{X}_{W}=f|^{X}_{W}$; pero como el único abierto no vacío de $X$ es $X$, tenemos $W=X$ y $f=f|^{X}_{X}=g|^{X}_{X}=g$. De este modo $\germ_{a}f_{X}=\left\lbrace (X,f)\right\rbrace$. Análogamente se llega a $\germ_{b}f_{X}=\left\lbrace (X,f)\right\rbrace$. Con lo anterior, $\germ_{a}f_{X}\in C_{a}\cap C_{b}$, esto es, $C_a$ y $C_b$ no son disyuntos para $a\neq b$. Por lo tanto los tallos del haz $C$ no son disyuntos.
+\end{Ejm}
+
