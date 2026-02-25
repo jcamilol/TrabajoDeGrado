@@ -13,16 +13,17 @@
 \usepackage{lipsum} %para usar el texto de relleno
 \usepackage{bold-extra} %permite usar textsc
 \usepackage{tikz-cd} %para los diagramas conmutativos
+\usepackage{mathrsfs} %para estilo especial de letra
 
 \counterwithin{equation}{subsection}
-\newtheorem{Tma}[equation]{Teorema}
-\newtheorem{Prop}[equation]{Proposición}
-\newtheorem{Def}[equation]{Definición}
-\newtheorem{Lema}[equation]{Lema}
-\newtheorem{Cor}[equation]{Corolario}
-\newtheorem{Ejc}[equation]{Ejercicio}
-\newtheorem{Ejm}[equation]{Ejemplo}
-\newtheorem{Not}[equation]{Notación}
+\newtheorem{Tma}{Teorema}
+\newtheorem{Prop}{Proposición}
+\newtheorem{Def}{Definición}
+\newtheorem{Lema}{Lema}
+\newtheorem{Cor}{Corolario}
+\newtheorem{Ejc}{Ejercicio}
+\newtheorem{Ejm}{Ejemplo}
+\newtheorem{Not}{Notación}
 
 \newcommand{\Sh}{\normalfont{\text{Sh}}}
 \newcommand{\PreSh}{\normalfont{\text{PreSh}}}
@@ -96,9 +97,34 @@
       %\textsc{Palabras Clave.} Haz; espacio étalé; prehaz; homeomorfismo local; manojo; hacificación; equivalencia de categorías; local vs global.
    %\end{abstract}
 
-   % \vspace{1cm}
+   La Definición \ref{def:Godement} es debida a \cite[p.~109]{TATF}. 
 
-   %\tableofcontents
+   \begin{Def}\label{def:Godement}
+      Sean $X$ un espacio topológico y $\mathscr{F}$ un prehaz de conjuntos sobre $X$. Se dice que $\mathscr{F}$ es un ${\text{haz}_1}$ de conjuntos cuando se cumplen las siguientes condiciones\footnote{Dados abiertos $U$ y $V\subseteq U$, y un $s\in\mathscr{F}(U)$, la imagen de $s$ por la aplicación $\mathscr{F}(U)\to\mathscr{F}(V)$ es la restricción de $s$ a $V$.}:
+      \begin{itemize}
+         \item[(F1):] Sea $(U_i)_{i\in I}$ una familia de conjuntos abiertos de $X$, $U$ la unión de los $U_i$ y $s',s''$ dos elementos de $\mathscr{F}(U)$; si las restricciones de $s'$ y $s''$ a cada $U_i$ son iguales, entonces $s'=s''$.
+         \item[(F2):] Sea $(U_i)_{i\in I}$ una familia de conjuntos abiertos de $X$, con unión $U$, y supóngase dados unos $s_i\in \mathscr{F}(U_i)$ de tal manera que, cualesquiera que sean $i,j\in I$, las restricciones de $s_i$ y $s_j$ a $U_i\cap U_j$ sean iguales; entonces existe un $s\in \mathscr{F}(U)$ cuya restricción a $U_i$ es $s_i$ para todo $i\in I$.
+      \end{itemize}
+   \end{Def}
+
+   La Definición \ref{def:Moerdijk} es debida a \cite[p.~66]{SGL}; para ella introducimos antes tres funciones canónicas.
+
+   \begin{Def} 
+      Sea $P$ un prehaz sobre un espacio topológico $X$. Dados $U\in\mathcal{O}(X)$ y $\left\lbrace U_i\right\rbrace_{i\in I}$ un cubrimiento abierto de $U$, definimos las siguientes funciones\footnote{Dados abiertos $U$ y $V\subseteq U$, y un $f\in PU$, representamos por $f|^U_V$ a la imagen de $f$ por la aplicación $PU\to PV$.}:
+      \begin{itemize}
+         \item $e:PU\to \prod_{i\in I}PU_i$ que a cada $f\in PU$ le asigna la familia $\left\lbrace f|^{U}_{U_i}\right\rbrace_{i\in I}$.
+         \item $\pi_1:\prod_{i\in I}PU_i\to \prod_{(i,j)\in I\times I}P(U_i\cap U_j)$ que a cada $\left\lbrace f_i\right\rbrace_{i\in I}\in\prod_{i\in I}PU_i$ le asigna la familia $\left\lbrace {f_i}|^{U_i}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$.
+         \item $\pi_2:\prod_{i\in I}PU_i\to \prod_{(i,j)\in I\times I}P(U_i\cap U_j)$ que a cada $\left\lbrace f_i\right\rbrace_{i\in I}\in\prod_{i\in I}PU_i$ le asigna la familia $\left\lbrace {f_j}|^{U_j}_{U_i\cap U_j}\right\rbrace_{(i,j)\in I\times I}$.
+      \end{itemize}
+      Llamamos a $e$ la función canónica de $PU$ en $\prod_{i\in I}PU_i$ y a $\pi_1$ y $\pi_2$ las funciones canónicas de $\prod_{i\in I}PU_i$ en $\prod_{(i,j)\in I\times I}P(U_i\cap U_j)$.
+   \end{Def}
+
+   \begin{Def}\label{def:Moerdijk}
+      Un ${haz}_3$ de conjuntos $P$ sobre un espacio topológico $X$ es un prehaz de conjuntos tal que para cualquier $U\in \mathcal{O}(X)$ y cualquier cubrimiento abierto $\left\lbrace U_i\right\rbrace_{i\in I}$ de $U$, el siguiente es un diagrama igualador:
+      \input{Diag1.tex}
+   donde $e,\pi_1$ y $\pi_2$ son las respectivas funciones canónicas.
+   \end{Def}
+
    \newpage
    \nocite{*}
    \bibliographystyle{apalike}
